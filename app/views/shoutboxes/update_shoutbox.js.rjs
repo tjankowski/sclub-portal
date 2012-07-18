@@ -1,0 +1,5 @@
+page.replace_html "small_shoutbox_comments", :partial => "shoutboxes/small_comment", :collection => @shoutbox_comments
+page.select('#shoutbox').each do |element|
+  page.replace_html "shoutbox_comments", :partial => "shoutboxes/comment", :collection => @shoutbox_comments
+end
+#page.reload

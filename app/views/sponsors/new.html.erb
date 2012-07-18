@@ -1,0 +1,31 @@
+<div class="box">
+  <div class="box_header">
+    <h1>Nowy sponsor</h1>
+  </div>
+  <div class="box_content">
+
+    <% form_for @sponsor, :html => { :multipart => true } do |f| %>
+      <%= f.error_messages %>
+
+      <p>
+        <%= f.label :name %><br />
+        <%= f.text_field :name %>
+      </p>
+      <p>
+        <%= f.label :website %><br />
+        <%= f.text_field :website %>
+      </p>
+      <div class="form_row">
+        <%= f.label :logo %>
+        <%= f.file_field :logo %>
+      </div>
+      <p>
+        <%= f.label :info %><br />
+        <%= f.text_area :info %>
+      </p>
+      <p>
+        <%= f.submit 'Create' %>
+      </p>
+    <% end %>
+  </div>
+</div>

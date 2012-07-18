@@ -1,0 +1,11 @@
+<div class="box_header">
+  <h1>
+    <%= link_to article.title, article %>
+  </h1>
+</div>
+<div class="article_details">
+  <%= image_tag "calendar.png", :size => "15x15", :hspace => "10" %>ostatnie zmiany <%= l article.updated_at %>
+</div>
+<div class="box_content">
+  <%= article.body  %>
+</div>

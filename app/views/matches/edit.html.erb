@@ -1,0 +1,26 @@
+<div class="box">
+  <div class="box_header">
+    <h1>Dane szczegółowe</h1>
+  </div>
+  <div class="box_content">
+    <% form_for(@match) do |f| %>
+      <%= f.error_messages %>
+
+      <div class="form_row">
+        <%= f.label :match_start %>
+        <%= f.datetime_select :match_start, :minute_step => 15 %>
+      </div>
+      <div class="form_row">
+        <%= f.label :home %>
+        <%= f.text_field :home %>
+      </div>
+      <div class="form_row">
+        <%= f.label :away %>
+        <%= f.text_field :away %>
+      </div>
+      <div class="center_align">
+        <%= f.submit 'Zapisz' %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,93 @@
+<% if logged_in? %>
+  <% if current_user.has_role?('administrator')  %>
+    <% content_for :menu do %>
+      <ul>
+        <li>
+          <% link_to users_path do %>
+            <%= image_tag "group.png", :size => "15x15", :hspace => "5" %>
+            Zarządzaj użytkownikami
+          <% end %>
+        </li>
+        <li>
+          <% link_to :controller => "club", :action => "edit_information" do %>
+
+            <%= image_tag "info.png", :size => "15x15", :hspace => "5" %>
+            Informacje o klubie
+          <% end %>
+        </li>
+        <li>
+          <% link_to :controller => "articles", :action => "all" do %>
+            <%= image_tag "document.png", :size => "15x15", :hspace => "5" %>
+            Artykuły
+          <% end %>
+        </li>
+        <li>
+          <% link_to :controller => "photos" do %>
+            <%= image_tag "image.png", :size => "15x15", :hspace => "5" %>
+            Zdjęcia
+          <% end %>
+        </li>
+        <li>
+          <% link_to :controller => "galleries" do %>
+            <%= image_tag "images.png", :size => "15x15", :hspace => "5" %>
+            Galerie
+          <% end %>
+        </li>
+        <li>
+          <% link_to :controller => "tags" do %>
+            <%= image_tag "tag.png", :size => "15x15", :hspace => "5" %>
+            Tagi
+          <% end %>
+        </li>
+        <li>
+          <% link_to :controller => "players" do %>
+            <%= image_tag "wizard.png", :size => "15x15", :hspace => "5" %>
+            Zawodnicy
+          <% end %>
+        </li>
+        <li>
+          <% link_to entries_path do %>
+            <%= image_tag "wizard.png", :size => "15x15", :hspace => "5" %>
+            Zgłoszenia
+          <% end %>
+        </li>
+        <li>
+          <% link_to :controller => "clubs" do %>
+            <%= image_tag "wizard.png", :size => "15x15", :hspace => "5" %>
+            Kluby
+          <% end %>
+        </li>
+        <li>
+          <% link_to :controller => "teams" do %>
+            <%= image_tag "wizard.png", :size => "15x15", :hspace => "5" %>
+            Drużyny
+          <% end %>
+        </li>
+        <li>
+          <% link_to :controller => "seasons" do %>
+            <%= image_tag "wizard.png", :size => "15x15", :hspace => "5" %>
+            Sezony
+          <% end %>
+        </li>
+        <li>
+          <% link_to :controller => "matches" do %>
+            <%= image_tag "wizard.png", :size => "15x15", :hspace => "5" %>
+            Mecze
+          <% end %>
+        </li>
+        <li>
+          <% link_to staffs_path do %>
+            <%= image_tag "wizard.png", :size => "15x15", :hspace => "5" %>
+            Sztab szkoleniowy
+          <% end %>
+        </li>
+        <li>
+          <% link_to sponsors_path do %>
+            <%= image_tag "wizard.png", :size => "15x15", :hspace => "5" %>
+            Sponsorzy
+          <% end %>
+        </li>
+      </ul>
+    <% end %>
+  <% end %>
+<% end %>

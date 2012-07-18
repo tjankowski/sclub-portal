@@ -1,0 +1,6 @@
+<%= render :partial => "articles/editor" %>
+
+<% form_for :info do |f| %>
+  <%= render :partial => "edit_information_text_area", :collection => ClubInformation::FIELDS, :locals => { :form => f} %>
+<% end %>
+

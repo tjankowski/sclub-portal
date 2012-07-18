@@ -1,0 +1,19 @@
+<div class="box">
+  <div class="box_header">
+    <h1><%= @season.name %></h1>
+  </div>
+  <div class="box_content">
+    <% div_for @season do %>
+      <div>
+        <%= @season.start_at %> - <%= @season.end_at %>
+      </div>
+      <div>
+        <%= render :partial => "matches/match_short", :collection => @season.matches %>
+      </div>
+      <div>
+        <%= link_to "Usuń", :controller => "seasons", :action => "delete", :id => @season %>
+        | <%= link_to "Edytuj", :controller => "seasons", :action => "edit", :id => @season %>
+      </div>
+    <% end %>
+  </div>
+</div>

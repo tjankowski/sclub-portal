@@ -1,0 +1,18 @@
+<div class="box">
+  <div class="box_header">
+<h1>Nowa rola</h1>
+  </div>
+  <div class="box_content">
+<% form_for(@role) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :rolename %><br />
+    <%= f.text_field :rolename %>
+  </p>
+  <p>
+    <%= f.submit 'Dodaj' %>
+  </p>
+<% end %>
+  </div>
+</div>

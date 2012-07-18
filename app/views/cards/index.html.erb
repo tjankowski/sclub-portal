@@ -1,0 +1,35 @@
+<div class="box">
+  <div class="box_header">
+    <h1>Listing cards</h1>
+  </div>
+  <div class="box_content">
+    <table>
+      <tr>
+        <th>Player</th>
+        <th>Appearance</th>
+        <th>Team</th>
+        <th>Minute</th>
+        <th>Info</th>
+        <th>Color</th>
+      </tr>
+
+      <% @cards.each do |card| %>
+        <tr>
+          <td><%=h card.player_id %></td>
+          <td><%=h card.appearance_id %></td>
+          <td><%=h card.team_id %></td>
+          <td><%=h card.minute %></td>
+          <td><%=h card.info %></td>
+          <td><%=h card.color %></td>
+          <td><%= link_to 'Show', card %></td>
+          <td><%= link_to 'Edit', edit_card_path(card) %></td>
+          <td><%= link_to 'Destroy', card, :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+      <% end %>
+    </table>
+
+    <br />
+
+    <%= link_to 'New card', new_card_path %>
+  </div>
+</div>

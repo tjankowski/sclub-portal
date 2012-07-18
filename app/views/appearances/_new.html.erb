@@ -1,0 +1,26 @@
+<div class="box_header">
+  <span class="title">Dodaj do składu</span>
+</div>
+<div class="box_content">
+  <% remote_form_for [@match, Appearance.new] do |f| %>
+    <div class="form_row">
+      <%= f.label 'Zawodnik:' %>
+      <%= text_field_with_auto_complete :appearance, :player_name, {}, { :url => formatted_auto_complete_players_path(:js), :method => :get, :with => "'search=' + element.value"} %>
+    </div>
+    <div class="form_row">
+      <label for="season">Drużyna:</label>
+      <%= f.collection_select :team, @match.teams, :id, :official_name %>
+    </div>
+    <div class="form_row">
+      <%= f.label 'Numer koszulki:' %>
+      <%= f.text_field :number %>
+    </div>
+    <div class="form_row">
+      <%= f.label 'Czas gry:' %>
+      <%= f.select :start, minutes %> - <%= f.select :end, minutes %>
+    </div>
+    <div class="center_align">
+      <%= f.submit "dodaj" %>
+    </div>
+  <% end %>
+</div>

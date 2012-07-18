@@ -1,0 +1,38 @@
+<%= render :partial => 'menu' %>
+<%= stylesheet_link_tag "blue_article" %>
+
+<% content_for :feature do %>
+  <%= render :partial => 'articles_viewer' %>
+<% end %>
+
+<% if logged_in? %>
+  <% if current_user.has_role?('administrator')  %>
+    <% content_for :promo do %>
+      <div class="box">
+        <div class="box_header">
+          <h1>
+            Narzędzia administratora
+          </h1>
+        </div>
+        <div class="box_content">
+          <div>
+            <%= new_article_tool_link %>
+          </div>
+          <div>
+            <%= tool_link 'document.png', 'Pokaż wszystkie', 'articles', 'all' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= render :partial =>"article_short", :collection => @articles %>
+
+<div>
+  <%= will_paginate @articles, :prev_label => "Poprzednia", :next_label => "Następna"  %>
+</div>
+
+
+
+

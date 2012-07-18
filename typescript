@@ -1,0 +1,80 @@
+Skrypt uruchomiony nie, 1 lip 2012, 15:47:42
+]0;tomek@tomek-laptop: ~/NetBeansProjects/motobitomek@tomek-laptop:~/NetBeansProjects/motobi$ rails s[Krails s[K[K[K[K[K[K[Krails s
+=> Booting WEBrick
+=> Rails 3.2.5 application starting in development on http://0.0.0.0:3000
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+DEPRECATION WARNING: You have Rails 2.3-style plugins in vendor/plugins! Support for these plugins will be removed in Rails 4.0. Move them out and bundle them in your Gemfile, or fold them in to your app as lib/myplugin/* and config/initializers/myplugin.rb. See the release notes for more on this: http://weblog.rubyonrails.org/2012/1/4/rails-3-2-0-rc2-has-been-released. (called from <top (required)> at /home/tomek/NetBeansProjects/motobi/config/environment.rb:6)
+DEPRECATION WARNING: You have Rails 2.3-style plugins in vendor/plugins! Support for these plugins will be removed in Rails 4.0. Move them out and bundle them in your Gemfile, or fold them in to your app as lib/myplugin/* and config/initializers/myplugin.rb. See the release notes for more on this: http://weblog.rubyonrails.org/2012/1/4/rails-3-2-0-rc2-has-been-released. (called from <top (required)> at /home/tomek/NetBeansProjects/motobi/config/environment.rb:6)
+DEPRECATION WARNING: You have Rails 2.3-style plugins in vendor/plugins! Support for these plugins will be removed in Rails 4.0. Move them out and bundle them in your Gemfile, or fold them in to your app as lib/myplugin/* and config/initializers/myplugin.rb. See the release notes for more on this: http://weblog.rubyonrails.org/2012/1/4/rails-3-2-0-rc2-has-been-released. (called from <top (required)> at /home/tomek/NetBeansProjects/motobi/config/environment.rb:6)
+DEPRECATION WARNING: You have Rails 2.3-style plugins in vendor/plugins! Support for these plugins will be removed in Rails 4.0. Move them out and bundle them in your Gemfile, or fold them in to your app as lib/myplugin/* and config/initializers/myplugin.rb. See the release notes for more on this: http://weblog.rubyonrails.org/2012/1/4/rails-3-2-0-rc2-has-been-released. (called from <top (required)> at /home/tomek/NetBeansProjects/motobi/config/environment.rb:6)
+DEPRECATION WARNING: You have Rails 2.3-style plugins in vendor/plugins! Support for these plugins will be removed in Rails 4.0. Move them out and bundle them in your Gemfile, or fold them in to your app as lib/myplugin/* and config/initializers/myplugin.rb. See the release notes for more on this: http://weblog.rubyonrails.org/2012/1/4/rails-3-2-0-rc2-has-been-released. (called from <top (required)> at /home/tomek/NetBeansProjects/motobi/config/environment.rb:6)
+[2012-07-01 15:49:30] INFO  WEBrick 1.3.1
+[2012-07-01 15:49:30] INFO  ruby 1.9.2 (2012-04-20) [i686-linux]
+[2012-07-01 15:49:30] INFO  WEBrick::HTTPServer#start: pid=3554 port=3000
+
+
+Started GET "/articles" for 127.0.0.1 at 2012-07-01 15:49:39 +0200
+Processing by ArticlesController#index as HTML
+  [1m[36mTag Load (15.7ms)[0m  [1mSELECT "tags".* FROM "tags" ORDER BY counter DESC[0m
+  [1m[35mArticle Load (16.7ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."published" = 't' ORDER BY created_at DESC
+Completed 500 Internal Server Error in 742ms
+
+ActionView::MissingTemplate (Missing template layouts/site with {:locale=>[:pl], :formats=>[:html], :handlers=>[:erb, :builder, :coffee]}. Searched in:
+  * "/home/tomek/NetBeansProjects/motobi/app/views"
+):
+  actionpack (3.2.5) lib/action_view/path_set.rb:58:in `find'
+  actionpack (3.2.5) lib/action_view/lookup_context.rb:109:in `find'
+  actionpack (3.2.5) lib/action_view/renderer/abstract_renderer.rb:3:in `find_template'
+  actionpack (3.2.5) lib/action_view/renderer/template_renderer.rb:79:in `resolve_layout'
+  actionpack (3.2.5) lib/action_view/renderer/template_renderer.rb:86:in `resolve_layout'
+  actionpack (3.2.5) lib/action_view/renderer/template_renderer.rb:69:in `block in find_layout'
+  actionpack (3.2.5) lib/action_view/lookup_context.rb:228:in `with_layout_format'
+  actionpack (3.2.5) lib/action_view/renderer/abstract_renderer.rb:3:in `with_layout_format'
+  actionpack (3.2.5) lib/action_view/renderer/template_renderer.rb:69:in `find_layout'
+  actionpack (3.2.5) lib/action_view/renderer/template_renderer.rb:53:in `render_with_layout'
+  actionpack (3.2.5) lib/action_view/renderer/template_renderer.rb:45:in `render_template'
+  actionpack (3.2.5) lib/action_view/renderer/template_renderer.rb:18:in `render'
+  actionpack (3.2.5) lib/action_view/renderer/renderer.rb:36:in `render_template'
+  actionpack (3.2.5) lib/action_view/renderer/renderer.rb:17:in `render'
+  actionpack (3.2.5) lib/abstract_controller/rendering.rb:110:in `_render_template'
+  actionpack (3.2.5) lib/action_controller/metal/streaming.rb:225:in `_render_template'
+  actionpack (3.2.5) lib/abstract_controller/rendering.rb:103:in `render_to_body'
+  actionpack (3.2.5) lib/action_controller/metal/renderers.rb:28:in `render_to_body'
+  actionpack (3.2.5) lib/action_controller/metal/compatibility.rb:50:in `render_to_body'
+  actionpack (3.2.5) lib/abstract_controller/rendering.rb:88:in `render'
+  actionpack (3.2.5) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (3.2.5) lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+  activesupport (3.2.5) lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+  /home/tomek/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/benchmark.rb:310:in `realtime'
+  activesupport (3.2.5) lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  actionpack (3.2.5) lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+  actionpack (3.2.5) lib/action_controller/metal/instrumentation.rb:83:in `cleanup_view_runtime'
+  activerecord (3.2.5) lib/active_record/railties/controller_runtime.rb:24:in `cleanup_view_runtime'
+  actionpack (3.2.5) lib/action_controller/metal/instrumentation.rb:39:in `render'
+  actionpack (3.2.5) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (3.2.5) lib/action_controller/metal/mime_responds.rb:196:in `respond_to'
+  app/controllers/articles_controller.rb:17:in `index'
+  actionpack (3.2.5) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.2.5) lib/abstract_controller/base.rb:167:in `process_action'
+  actionpack (3.2.5) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (3.2.5) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:414:in `_run__793787620__process_action__520603103__callbacks'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.5) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.2.5) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (3.2.5) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.2.5) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.5) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.5) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.5) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.2.5) lib/action_controller/metal/params_wrapper.rb:206:in `process_action'
+  activerecord (3.2.5) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (3.2.5) lib/abstract_controller/base.rb:121:in `process'
+  actionpack (3.2.5) lib/abstract_controller/rendering.rb:45:in `process'
+  actionpack (3.2.5) lib/action_controller/metal.rb:203:in `dispatch'
+  actionpack (3.2.5) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.2.5) lib/action_controller/metal.rb:246:in `block in action'
+  actionpack (3.2.5) lib/action_dispatch/rou

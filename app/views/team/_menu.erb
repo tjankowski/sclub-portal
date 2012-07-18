@@ -1,0 +1,14 @@
+<% content_for :menu do %>
+  <% for team in @teams do %>
+      <ul>
+        <li><%= link_to team.name, :controller => "team", :action => "players", :id => team %></li>
+      </ul>
+      <div id="submenu">
+        <ul>
+          <li><%= link_to "Zawodnicy", :controller => "team", :action => "players", :id => team %></li>
+          <li><%= link_to "Sztab", :controller => "team", :action => "staff", :id => team %></li>
+          <li><%= link_to "Newsy", :controller => "team", :action => "news", :id => team %></li>
+        </ul>
+      </div>
+    <% end %>
+  <% end %>

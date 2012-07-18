@@ -1,0 +1,60 @@
+<div class="box">
+  <div class="box_header">
+    <h1>
+      <%= player.full_name %>
+    </h1>
+  </div>
+  <div class="player_form">
+    <table width="100%;">
+      <tr>
+        <td width="50%">
+          <div class="player_detail_form">
+            <div class="player_detail">
+              Data urodzenia:
+              <span class="right_align">
+                <%= l player.birthdate %>
+              </span>
+            </div>
+            <div class="player_detail">
+              Pozycja:
+              <span class="right_align">
+                <%=  player.position %>
+              </span>
+            </div>
+            <div class="player_detail">
+              Wzrost:
+              <span class="right_align">
+                <%=  player.height %> cm
+              </span>
+            </div>
+            <div class="player_detail">
+              Waga:
+              <span class="right_align">
+                <%= player.weight %> kg
+              </span>
+            </div>
+          </div>
+        </td>
+        <td width="50%">
+          <div class="player_photo">
+            <% if (player.galleries.empty?) or (player.galleries.last.photos.empty?) %>
+              <%= image_tag "unknown_player.png", :size => "300x300", :hspace => "10" %>
+            <% else %>
+              <% link_to player.galleries.last do %>
+                <% if player.galleries.last.has_main_photo? %>
+                  <%= image_tag player.galleries.last.main_photo.view.url(:medium), :hspace => "10" %>
+                <% else %>
+                  <%= image_tag player.galleries.last.photos.first.view.url(:medium), :hspace => "10" %>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <div class="player_detail"></div>
+    <div class="player_information">
+      <%= player.information %>
+    </div>
+  </div>
+</div>

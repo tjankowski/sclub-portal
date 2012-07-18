@@ -1,0 +1,5 @@
+<% @view_modules = ViewModule.find_all_by_published(true) %>
+
+<% for view_module in @view_modules do %>
+    <%= render :partial => 'partials/view_module', :object => view_module %>
+  <% end %>

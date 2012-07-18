@@ -1,0 +1,10 @@
+<% link_to :controller => "players", :action => "show", :id => player.id do %>
+  <div class="short_player">
+    <%= image_tag "unknown_player.png", :size => "100x100", :align => "top", :hspace => "10" %>
+    <span class="small_font">
+      <span class="bold_font">
+        <%= player.full_name %>
+      </span>
+    </span>
+  </div>
+<% end %>

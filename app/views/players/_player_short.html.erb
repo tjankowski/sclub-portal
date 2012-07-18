@@ -1,0 +1,20 @@
+<% link_to :controller => "players", :action => "show", :id => player_short.id do %>
+  <div class="short_player">
+    <div class="short_player_photo">
+      <% if (player_short.galleries.empty?) or (player_short.galleries.last.photos.empty?) %>
+        <%= image_tag "unknown_player.png", :size => "150x150", :align => "top", :hspace => "10" %>
+      <% else %>
+        <% if player_short.galleries.last.has_main_photo? %>
+          <%= image_tag player_short.galleries.last.main_photo.view.url(:small), :align => "top", :hspace => "10" %>
+        <% else %>
+          <%= image_tag player_short.galleries.last.photos.first.view.url(:small), :align => "top", :hspace => "10" %>
+        <% end %>
+      <% end %>
+    </div>
+    <span class="small_font">
+      <span class="bold_font">
+        <%= player_short.full_name %>
+      </span>
+    </span>
+  </div>
+<% end %>

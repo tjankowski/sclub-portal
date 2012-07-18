@@ -1,0 +1,35 @@
+<div clss="box">
+  <div class="box_header">
+    <h1>
+      Zmiana hasła
+    </h1>
+  </div>
+  <div class="box_content">
+    <% form_tag url_for(:action => "update") do %>
+      <div class="form_row">
+        <label class="left_label" for="old_password">
+          <%= image_tag "unlock.png", :size => "15x15", :hspace => "5" %>
+          Stare hasło:
+        </label>
+        <%= password_field_tag 'old_password', @old_password, :size => 45 %>
+      </div>
+      <div class="form_row">
+        <label class="left_label" for="password">
+          <%= image_tag "lock.png", :size => "15x15", :hspace => "5" %>
+          Nowe hasło:
+        </label>
+        <%= password_field_tag 'password', {}, :size => 45 %><small>Od 4 do 40 znaków</small>
+      </div>
+      <div class="form_row">
+        <label class="left_label" for="password_confirmation">
+          <%= image_tag "lock.png", :size => "15x15", :hspace => "5" %>
+          Potwierdź nowe hasło:
+        </label>
+        <%= password_field_tag 'password_confirmation', {}, :size => 45 %>
+      </div>
+
+      <%= submit_tag 'Zmień hasło' %>
+
+    <% end %>
+  </div>
+</div>

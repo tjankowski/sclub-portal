@@ -1,0 +1,18 @@
+<div class="match">
+  <% link_to :controller => "matches", :action => "show", :id => match_short.id do %>
+    <div class="match_date">
+      <%= l match_short.match_start %>
+    </div>
+    <div class="match_summary">
+      <div class="home_team">
+        <%=h  match_short.team_official_name %>
+      </div>
+      <div class="result">
+        <%=h  match_short.home %> - <%=h  match_short.away %>
+      </div>
+      <div class="away_team">
+        <%=h  match_short.rival_official_name %>
+      </div>
+    </div>
+  <% end %>
+</div>

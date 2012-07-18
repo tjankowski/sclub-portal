@@ -1,0 +1,63 @@
+<div class="box">
+  <div class="box_content">
+    <%= render :partial => 'matches/match_short', :object => appearance.match %>
+  </div>
+</div>
+
+<div class="box">
+  <div class="box_header">
+    <h1><%= link_to appearance.player.full_name, appearance %></h1>
+  </div>
+  <div class="box_content">
+    <div class="player_form">
+      <table width="100%;">
+        <tr>
+          <td width="50%">
+            <div class="player_detail_form">
+              <div class="player_detail">
+                Czas gry:
+                <span class="right_align">
+                  <%=  image_tag "zmiana_on.png", :size => "15x15" %><%= appearance.start %> -
+                  <%=  image_tag "zmiana_off.png", :size => "15x15" %><%= appearance.end %>
+                </span>
+              </div>
+              <div class="player_detail">
+                Kartki:
+                <span class="right_align">
+                  <%= render :partial => appearance.cards %>
+                </span>
+              </div>
+              <div class="player_detail">
+                Bramki:
+                <span class="right_align">
+                  <%= render :partial => appearance.goals %>
+                </span>
+              </div>
+              <div class="player_detail">
+                <span style="margin-right: 54%; display: inline-block; float: left;">Ocena:</span>
+                <span >
+                  <%= render :partial => 'appearance_ratings/rating', :locals => { :appearance => appearance } %>
+                </span>
+              </div>
+            </div>
+          </td>
+          <td width="50%">
+            <div class="player_photo">
+              <% if (appearance.player.galleries.empty?) or (appearance.player.galleries.last.photos.empty?) %>
+                <%= image_tag "unknown_player.png", :size => "300x300", :hspace => "10" %>
+              <% else %>
+                <% link_to appearance.player.galleries.last do %>
+                  <% if appearance.player.galleries.last.has_main_photo? %>
+                    <%= image_tag appearance.player.galleries.last.main_photo.view.url(:medium), :hspace => "10" %>
+                  <% else %>
+                    <%= image_tag appearance.player.galleries.last.photos.first.view.url(:medium), :hspace => "10" %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="message">
+  <% if logged_in? %>
+    <% if current_user.has_role?('administrator')  %>
+      <% link_to edit_broadcast_message_path(message) do %>
+        <div class="inline_links">
+          <%= image_tag "document_edit.png", :size => "15x15", :alt => "Edytuj" %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+  <% if message.minute %>
+    <% if !message.minute.empty? %>
+      <div class="minute">
+        <%=h message.minute %>
+      </div>
+    <% else %>
+      <div class="empty_minute">
+      </div>
+    <% end %>
+  <% else %>
+    <div class="empty_minute">
+    </div>
+  <% end %>
+  <div class="status">
+    <%= status_image(message) %>
+  </div>
+  <div class="text">
+    <%=h message.body %>
+  </div>
+</div>

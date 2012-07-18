@@ -1,0 +1,31 @@
+<div class="article">
+  <div class="article_header">
+    <span class="title">
+      <%= link_to article_short.title, article_short %>
+    </span>
+  </div>
+  <%= render :partial => 'articles/article_details', :object => article_short %>
+  <% link_to article_short do %>
+    <div class="content">
+      <% if (article_short.galleries.empty?) or (article_short.galleries.last.photos.empty?) %>
+        <%= sanitize(article_short.abstract) %>
+      <% else %>
+        <div class="gallery_short">
+          <% if article_short.galleries.last.has_main_photo? %>
+            <%= render :partial => "articles/photo_short", :object => article_short.galleries.last.main_photo %>
+          <% else %>
+            <%= render :partial => "articles/photo_short", :object => article_short.galleries.last.photos.last %>
+          <% end %>
+        </div>
+        <div class="text">
+          <%= sanitize(article_short.abstract) %>
+        </div>
+      <% end %>
+      <% link_to article_short do %>
+        <div class="right_align">
+          <%= image_tag "go.png", :size => "15x15", :hspace => "10" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

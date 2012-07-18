@@ -1,0 +1,28 @@
+<% if logged_in? %>
+  <% if current_user.has_role?('administrator')  %>
+    <div class="box">
+      <div class="box_content">
+        <% link_to new_entry_path do %>
+          <div class="inline_links">
+            <%= image_tag "user_add.png", :size => "15x15", :hspace => "5" %>
+            <span class="small_font">
+              Nowy
+            </span>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+<div class="box">
+  <div class="box_header">
+    <h1>
+      Zgłoszenia
+    </h1>
+  </div>
+  <div class="box_content">
+    <table rules="rows" width="100%">
+      <%= render :partial => @entries %>
+    </table>
+  </div>
+</div>

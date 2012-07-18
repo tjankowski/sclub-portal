@@ -1,0 +1,45 @@
+<div class="box">
+  <div class="box_content">
+    <%= tool_link_id 'back.png', 'Wróć do meczu', 'matches', 'show', @appearance.match %>
+    <% if logged_in? %>
+      <% if current_user.has_role?('administrator')  %>
+        <%= edit_appearance_tool_link(@appearance) %>
+        <% link_to @appearance, :confirm => 'Na pewno chcesz usunąć?', :method => :delete do %>
+          <%= image_tag "delete.png", :size => "15x15", :hspace => "5" %>
+          <small>
+            Usuń
+          </small>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<%= render :partial => @appearance %>
+
+<% if logged_in? %>
+  <% if current_user.has_role?('administrator')  %>
+    <div id="form_links" class="box">
+      <div class="box_content">
+        <div id="new_goal_form_link">
+          <%= image_tag 'add.png', :size => "15x15", :hspace => "5" %>
+          <%= link_to_function 'Dodaj bramkę' do |page|
+            page.insert_html :bottom, :new_goal_form, :partial => 'goals/new'
+            page.hide :form_links
+          end %>
+        </div>
+        <div id="new_card_form_link">
+          <%= image_tag 'add.png', :size => "15x15", :hspace => "5" %>
+          <%= link_to_function 'Dodaj kartkę' do |page|
+            page.insert_html :bottom, :new_card_form, :partial => 'cards/new'
+            page.hide :form_links
+          end %>
+        </div>
+      </div>
+    </div>
+    <div id="new_goal_form">
+    </div>
+    <div id="new_card_form">
+    </div>
+  <% end %>
+<% end %>

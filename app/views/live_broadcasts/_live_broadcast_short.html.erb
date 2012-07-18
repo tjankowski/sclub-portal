@@ -1,0 +1,29 @@
+<div class="match">
+  <% link_to live_broadcast_short do %>
+    <div class="match_date">
+      <%= l live_broadcast_short.match.match_start %>
+    </div>
+    <div class="match_summary">
+      <div class="home_team">
+        <%=h  live_broadcast_short.match.team.official_name %>
+      </div>
+      <div class="result">
+        -
+      </div>
+      <div class="away_team">
+        <%=h  live_broadcast_short.match.rival.official_name %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="right_align">
+  <% if logged_in? %>
+    <% if current_user.has_role?('administrator')  %>
+      <% link_to live_broadcast_short, :confirm => 'Czy jesteś pewien ?', :method => :delete do %>
+        <%= image_tag "delete.png", :size => "15x15", :hspace => "5" %>
+          Usuń
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+<div class="separator"></div>

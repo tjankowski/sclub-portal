@@ -1,0 +1,10 @@
+<% link_to thumbnail do %>
+  <div class="photo">
+    <%= image_tag thumbnail.view.url(:small) %>
+    <div>
+      <small>
+        <%=h thumbnail.name %>
+      </small>
+    </div>
+  </div>
+<% end %>

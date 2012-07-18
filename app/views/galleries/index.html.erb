@@ -1,0 +1,24 @@
+<%= render :partial => 'menu' %>
+
+<% if logged_in? %>
+  <% if current_user.has_role?('administrator')  %>
+    <div class="box">
+      <div class="box_content">
+        <%= new_gallery_tool_link %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+<div class="box">
+  <div class="box_header">
+    <h1>
+      Galerie
+    </h1>
+  </div>
+  <div class="box_content">
+      <%= render :partial =>"gallery", :collection => @galleries %>
+    <div class="center_align">
+      <%= will_paginate @galleries, :prev_label => "Poprzednia", :next_label => "Następna" %>
+    </div>
+  </div>
+</div>

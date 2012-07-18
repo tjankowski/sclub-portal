@@ -1,0 +1,12 @@
+<div class="article_details">
+  <%= image_tag "calendar.png", :size => "15x15", :hspace => "5" %>
+  dodany: <%= l article_details.created_at %>
+  <%= image_tag "user.png", :size => "15x15", :hspace => "5" %>
+  napisany przez <%= link_to h( article_details.user.login), user_path( article_details.user) %>
+  <%  link_to article_path( article_details, :anchor => "comments") do %>
+    <%= image_tag "comment.png", :size => "15x15", :hspace => "5" %>
+    komentarzy: <%=  article_details.comments.length %>
+  <% end %>
+  <%= image_tag "show.png", :size => "15x15", :hspace => "5" %>
+  wyświetleń: <%= article_details.view_counter %>
+</div>

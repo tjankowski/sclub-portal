@@ -1,0 +1,28 @@
+<div class="box">
+  <div class="box_header">
+    <h1>Nowe zgłoszenie</h1>
+  </div>
+  <div class="box_content">
+    <% form_for(@entry) do |f| %>
+      <%= f.error_messages %>
+      <div class="form_row">
+        <label for="season">Zawodnik:</label>
+        <%= text_field_with_auto_complete :entry, :player_name, {}, { :url => formatted_auto_complete_players_path(:js), :method => :get, :with => "'search=' + element.value"} %>
+      </div>
+      <div class="form_row">
+        <label for="season">Sezon:</label>
+        <%= f.collection_select :season, @seasons, :id, :full_name %>
+      </div>
+      <div class="form_row">
+        <label for="team">Drużyna:</label>
+        <%= text_field_with_auto_complete :entry, :team_official_name, {}, { :url => formatted_auto_complete_teams_path(:js), :method => :get, :with => "'search=' + element.value"} %>
+      </div>
+      <div class="center_align">
+        <%= f.submit 'Dodaj' %>
+      </div>
+    <% end %>
+    <div>
+      <%= link_to 'Wróc do list zgłoszeń', entries_path %>
+    </div>
+  </div>
+</div>

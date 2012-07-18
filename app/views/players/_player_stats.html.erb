@@ -1,0 +1,19 @@
+<div class="box">
+  <div class="green_header">
+    <h1>
+      Statystyki
+    </h1>
+  </div>
+  <div class="box_content">
+    <table width="100%">
+      <tr>
+        <td>
+          <%= render :partial => 'players/player_matches', :locals => { :player => player } %>
+        </td>
+        <td>
+          <%= render :partial => 'players/player_appearances', :locals => { :player => player, :number => 5 } %>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

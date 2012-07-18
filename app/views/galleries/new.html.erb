@@ -1,0 +1,23 @@
+<div class="box">
+  <div class="box_header">
+<h1>Nowa galeria</h1>
+  </div>
+  <div class="box_content">
+
+<% form_for(@gallery) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+        <%= f.label :published %>
+        <%= f.check_box :published, :checked => true %>
+      </p>
+  <p>
+    <%= f.submit 'Dodaj' %>
+  </p>
+<% end %>
+  </div>
+</div>

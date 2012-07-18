@@ -1,0 +1,27 @@
+<div class="article_short">
+  <table cellpadding="0" cellspacing="0" style="width: 100%;">
+      <tr>
+        <td style="width: 150px;">
+          <% if (article_short.galleries.empty?) or (article_short.galleries.last.photos.empty?) %>
+          <% else %>
+          <div>
+              <% if article_short.galleries.last.has_main_photo? %>
+                <%= render :partial => "articles/photo_short", :object => article_short.galleries.last.main_photo %>
+              <% else %>
+                <%= render :partial => "articles/photo_short", :object => article_short.galleries.last.photos.last %>
+              <% end %>
+            </div>
+          <% end %>
+          </td>
+          <td>
+            <div class="article_short_title">
+              <%= link_to article_short.title, article_short %>
+            </div>
+            <%= render :partial => 'articles/article_details', :object => article_short %>
+            <div class="article_short_summary">
+              <%= link_to article_short.summary_sentence, article_short %>
+            </div>
+          </td>
+        </tr>
+      </table>
+  </div>

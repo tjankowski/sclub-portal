@@ -1,0 +1,9 @@
+<% content_for :menu do %>
+  <ul>
+    <% for gallery in @galleries do %>
+        <li>
+          <%= link_to gallery.name, :controller => "galleries", :action => "show", :id => gallery %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>

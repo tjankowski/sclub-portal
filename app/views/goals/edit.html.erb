@@ -1,0 +1,36 @@
+<h1>Editing goal</h1>
+
+<% form_for(@goal) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :player_id %><br />
+    <%= f.text_field :player_id %>
+  </p>
+  <p>
+    <%= f.label :appearance_id %><br />
+    <%= f.text_field :appearance_id %>
+  </p>
+  <p>
+    <%= f.label :team_id %><br />
+    <%= f.text_field :team_id %>
+  </p>
+  <p>
+    <%= f.label :minute %><br />
+    <%= f.text_field :minute %>
+  </p>
+  <p>
+    <%= f.label :info %><br />
+    <%= f.text_area :info %>
+  </p>
+  <p>
+    <%= f.label :own %><br />
+    <%= f.check_box :own %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @goal %> |
+<%= link_to 'Back', goals_path %>

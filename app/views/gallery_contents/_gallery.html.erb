@@ -1,0 +1,8 @@
+<li>
+  <%= gallery.name %>
+    <% if gallery.has_photo?(@photo) %>
+      <%= link_to 'usuń', :controller => "gallery_contents", :action => "remove", :id => gallery.id, :photo_id => @photo.id %>
+    <% else %>
+      <%= link_to 'dodaj', :controller => "gallery_contents", :action => "add", :id => gallery.id, :photo_id => @photo.id %>
+    <% end %>
+</li>

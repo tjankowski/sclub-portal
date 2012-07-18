@@ -1,0 +1,12 @@
+<%= render :partial => "menu" %>
+<%= render :partial => "table", :locals => { :season => @season } %>
+<div class="box">
+  <div class="box_header">
+    <h1>
+      <%= @season.name %>
+    </h1>
+  </div>
+  <div class="box_content">
+  <%= render :partial => 'matches/match_short', :collection => @season.matches %>
+  </div>
+</div>

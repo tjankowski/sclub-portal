@@ -1,0 +1,44 @@
+<% content_tag_for :li, appearance_short do %>
+  <% if logged_in? %>
+    <% if current_user.has_role?('administrator')  %>
+      <span class="handle">
+        <%= image_tag "hand.png", :size => "15x15", :alt => 'Złap' %>
+      </span>
+
+      <% link_to appearance_short do %>
+        <%= appearance_short.number %>. <%= appearance_short.player.full_name %>
+        <% if appearance_short.start > 1 %>
+          <%=  image_tag "zmiana_on.png", :size => "10x10" %><%= appearance_short.start %>
+        <% end %>
+        <% if appearance_short.end < 90 %>
+          <%=  image_tag "zmiana_off.png", :size => "10x10" %><%= appearance_short.end %>
+        <% end %>
+      <% end %>
+
+    <% else %>
+
+      <% link_to appearance_short do %>
+        <%= appearance_short.number %>. <%= appearance_short.player.full_name %>
+        <% if appearance_short.start > 1 %>
+          <%=  image_tag "zmiana_on.png", :size => "10x10" %><%= appearance_short.start %>
+        <% end %>
+        <% if appearance_short.end < 90 %>
+          <%=  image_tag "zmiana_off.png", :size => "10x10" %><%= appearance_short.end %>
+        <% end %>
+      <% end %>
+
+    <% end %>
+  <% else %>
+
+    <% link_to appearance_short do %>
+      <%= appearance_short.number %>. <%= appearance_short.player.full_name %>
+      <% if appearance_short.start > 1 %>
+        <%=  image_tag "zmiana_on.png", :size => "10x10" %><%= appearance_short.start %>
+      <% end %>
+      <% if appearance_short.end < 90 %>
+        <%=  image_tag "zmiana_off.png", :size => "10x10" %><%= appearance_short.end %>
+      <% end %>
+    <% end %>
+
+  <% end %>
+<% end %>

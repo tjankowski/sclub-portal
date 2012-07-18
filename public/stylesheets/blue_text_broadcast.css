@@ -1,0 +1,51 @@
+.text_broadcast {
+    padding: 0.5em 1em 1em 1em;
+    font-size: 10px;
+}
+
+.text_broadcast .message {
+    padding: 0.5em 1em 0.5em 1em;
+    display: block;
+    overflow: auto;
+}
+
+.text_broadcast .minute{
+    display: inline-block;
+    padding: 0.3em;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    color: #121212;
+    background: #E8E8E8;
+    width: 30px;
+    vertical-align: top;
+    float: left;
+}
+
+.text_broadcast .empty_minute{
+    display: inline-block;
+    padding: 0.3em;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    color: #121212;
+    width: 30px;
+    vertical-align: top;
+    float: left;
+}
+
+.text_broadcast .status {
+    padding: 0.1em;
+    display: inline-block;
+    text-align: center;
+    width: 30px;
+    vertical-align: top;
+    float: left;
+}
+
+.text_broadcast .text {
+    display: inline-block;
+    width: 80%;
+    vertical-align: top;
+    float: left;
+}

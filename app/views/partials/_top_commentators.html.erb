@@ -1,0 +1,19 @@
+<div class="box">
+  <div class="box_header">
+    <span class="title">
+      <%=h title %>
+    </span>
+  </div>
+  <div class="box_content">
+    <ol>
+      <% for item in list do %>
+          <li>
+            <%= link_to  h(item[0].login), :controller => 'users', :action => 'show', :id => item[0] %>
+            <small>
+              (<%=h  item[1] %><%=h unit %>)
+            </small>
+          </li>
+        <% end %>
+      </ol>
+    </div>
+  </div>

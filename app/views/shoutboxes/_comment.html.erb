@@ -1,0 +1,34 @@
+<div class="comment" id="shoutbox_<% comment.id %>">
+  <div class="user">
+    <% link_to comment.user do %>
+      <% if comment.user.avatar.nil? %>
+        <%= image_tag "user_avatar.png", :size => "100x100", :hspace => "10" %>
+      <%  else %>
+        <%= image_tag comment.user.avatar.view.url, :size => "100x100", :hspace => "10" %>
+      <% end %>
+      <span class="display_block">
+        <%= comment.user.login %>
+      </span>
+    <% end %>
+  </div>
+  <div class="text">
+    <div class="body">
+      <%=h comment.body  %>
+    </div>
+    <div class="time">
+      napisany <%= time_ago_in_words(comment.updated_at, false) %> temu.
+    </div>
+    <% if logged_in? %>
+      <% if current_user.has_role?('administrator')  %>
+        <div>
+          <% link_to comment, :confirm => 'Are you sure ?', :method => :delete do %>
+            <div class="inline_links">
+              <%= image_tag "delete.png", :size => "15x15", :hspace => "5" %>
+              Usuń
+            </div>
+            <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

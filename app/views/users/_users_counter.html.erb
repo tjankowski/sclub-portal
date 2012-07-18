@@ -1,0 +1,17 @@
+<div class="box">
+  <div class="box_content">
+    <div class="small_font">
+      <div class="center_align">
+        <%= image_tag "group.png", :size => "15x15", :hspace => "5" %>
+        Zarejestrowani użytkownicy: <%=h @users_count %><br />
+      </div>
+      <div class="separator"></div>
+      <% link_to new_user_path do %>
+        <div class="center_align">
+          <%= image_tag "user_add.png", :size => "15x15", :hspace => "5" %>
+          Nie masz konta? Zarejestruj się!
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

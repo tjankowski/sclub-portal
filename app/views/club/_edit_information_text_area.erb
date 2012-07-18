@@ -1,0 +1,13 @@
+<div class="box">
+  <div class="box_header">
+    <h1>
+      <%= ClubInformation.human_attribute_name(edit_information_text_area) %>
+    </h1>
+  </div>
+  <div class="box_content">
+    <%= form.text_area edit_information_text_area %>
+    <p class="center_align">
+      <%= form.submit 'Zapisz', :align => "right" %>
+    </p>
+  </div>
+</div>

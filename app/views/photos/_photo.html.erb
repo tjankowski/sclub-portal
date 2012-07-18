@@ -1,0 +1,10 @@
+<div class="box_header">
+  <h1>
+    <%=h photo.name %>
+  </h1>
+</div>
+<div class="box_content">
+  <div class="full_photo">
+    <%= image_tag photo.view.url(:big), :align => "top" %>
+  </div>
+</div>

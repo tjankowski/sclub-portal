@@ -1,0 +1,14 @@
+<div class="overflow">
+  <table>
+    <tr>
+      <td style="width: 70%;"
+          <%= link_to team.official_name, :controller => "teams", :action => "show", :id => team  %>
+    </td>
+    <td>
+      <%= tool_link_id 'show.png', 'Pokaż', 'teams', 'show', team %>
+      <%= tool_link_id 'document_edit.png', 'Edytuj', 'teams', 'edit', team %>
+      <%= tool_link_id 'delete.png', 'Usuń', 'teams', 'delete', team %>
+    </td>
+  </tr>
+</table>
+</div>

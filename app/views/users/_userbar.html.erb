@@ -1,0 +1,21 @@
+<div id="userbar">
+  <ul>
+    <% if logged_in? %>
+      <li>
+      <%= link_to 'Moje konto: '+h(current_user.login), user_path(current_user) %></li>
+      <li>
+        <%= link_to 'Wyloguj', logout_url %>
+      </li>
+    <% else %>
+      <li>
+        <a href="javascript:void(0)" id="show_login_box">Zaloguj</a>
+        <!--
+        <%= link_to 'Zaloguj', new_session_path %>
+        -->
+      </li>
+      <li>
+        <%= link_to 'Rejestracja', new_user_path %>
+      </li>
+    <% end %>
+  </ul>
+</div>

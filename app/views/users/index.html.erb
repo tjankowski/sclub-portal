@@ -1,0 +1,16 @@
+<div class="box">
+  <div class="box_header">
+    <h1>Użytkownicy</h1>
+  </div>
+  <div class="box_content">
+    <table width="100%">
+      <tr>
+        <th>Login</th>
+        <th>Email</th>
+        <th>Aktywny?</th>
+        <th>Role</th>
+      </tr>
+      <%= render :partial => 'user', :collection => @users %>
+    </table>
+  </div>
+</div>

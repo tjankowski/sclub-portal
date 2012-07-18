@@ -1,0 +1,44 @@
+<% if logged_in? %>
+  <% if current_user.has_role?('administrator')  %>
+    <div class="box">
+      <div class="box_content">
+        <% link_to new_staff_path do %>
+          <div class="inline_links">
+            <%= image_tag "user_add.png", :size => "15x15", :hspace => "5" %>
+            <span class="small_font">
+              Nowy
+            </span>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="box">
+  <div class="box_header">
+    <h1>Sztab szkoleniowy</h1>
+  </div>
+  <div class="box_content">
+    <table>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Birthdate</th>
+        <th>Information</th>
+        <th>Role</th>
+      </tr>
+
+      <% @staffs.each do |staff| %>
+        <tr>
+          <td><%=h staff.firstname %></td>
+          <td><%=h staff.lastname %></td>
+          <td><%=h staff.birthdate %></td>
+          <td><%=h staff.information %></td>
+          <td><%=h staff.role %></td>
+          <td><%= link_to 'Show', staff %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

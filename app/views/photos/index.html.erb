@@ -1,0 +1,19 @@
+<% if logged_in? %>
+  <% if current_user.has_role?('administrator')  %>
+    <div class="box">
+      <div class="box_content">
+        <%= tool_link 'image.png', 'Nowe', 'photos', 'new' %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+<div class="box">
+  <div class="box_header">
+    <h1>
+      Zdjęcia
+    </h1>
+  </div>
+  <div class="box_content">
+    <%= render :partial =>"thumbnail", :collection => @photos %>
+  </div>
+</div>

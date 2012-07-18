@@ -1,0 +1,14 @@
+<% if logged_in? %>
+  <% if user == current_user  %>
+    <% content_for :menu do %>
+      <ul>
+        <li>
+          <% link_to edit_user_path(current_user) do %>
+            <%= image_tag "applications.png", :size => "15x15", :hspace => "5" %>
+            Ustawienia konta
+          <% end %>
+        </li>
+      </ul>
+    <% end %>
+  <% end %>
+<% end %>

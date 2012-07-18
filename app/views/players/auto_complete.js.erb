@@ -1,0 +1,7 @@
+<ul>
+  <% if @players %>
+    <% @players.each do |player| %>
+      <li><%= player.id %>.<%= player.full_name %><small> (<%= player.birthdate %>)</small></li>
+    <% end %>
+  <% end %>
+</ul>

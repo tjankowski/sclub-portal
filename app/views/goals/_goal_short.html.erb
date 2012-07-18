@@ -1,0 +1,11 @@
+<li>
+  <% if goal_short.own %>
+    <%=  image_tag "own_goal.png", :size => "10x10" %>
+    <%= goal_short.appearance.player.full_name %>
+    (<%= goal_short.minute %>.samobójczy)
+  <% else %>
+    <%=  image_tag "goal.png", :size => "10x10" %>
+    <%= goal_short.appearance.player.full_name %>
+    (<%= goal_short.minute %>.)
+  <% end %>
+</li>

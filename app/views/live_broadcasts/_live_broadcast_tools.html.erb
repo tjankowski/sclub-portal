@@ -1,0 +1,34 @@
+<% if logged_in? %>
+  <% if current_user.has_role?('administrator')  %>
+    <div class="box">
+      <div class="box_header">
+        <h1>
+          Nadzędzia
+        </h1>
+      </div>
+      <div class="box_content">
+        <div class="center_align">
+          <%= start_next_status_button(@live_broadcast) %>
+        </div>
+        <% form_for [@live_broadcast, BroadcastMessage.new] do |f| %>
+          <div class="center_align">
+            <%= f.text_area :body, :rows => 2, :cols => 60 %>
+          </div>
+          <div class="center_align">
+            Informacja o wiadomości: <%= f.select :status, broadcast_messages, {:include_blank => 'Wybierz informację'} %>
+          </div>
+          <div class="center_align">
+            <%= f.submit "dodaj" %>
+          </div>
+        <% end %>
+        <div class="separator">
+        </div>
+        <div class="center_align">
+          <%= last_status_button(@live_broadcast) %>
+          <%= next_status_button(@live_broadcast) %>
+          <%= render :partial => "partials/tool_inline_link_with_confirm", :locals => {:text => "Resetuj relację", :image => "Button Refresh.png"}.merge(locals_for_partial_cai("live_broadcasts", "reset_start", @live_broadcast)) %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

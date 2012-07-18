@@ -1,0 +1,19 @@
+<tr>
+  <td>
+    <%= entry.season.name %>
+  </td>
+  <td>
+    <%= entry.team.official_name %>
+  </td>
+  <td>
+    <%= entry.player.full_name %>
+  </td>
+  <td>
+    <% link_to entry, :confirm => 'Are you sure?', :method => :delete do %>
+      <%= image_tag "delete.png", :size => "15x15", :hspace => "5" %>
+      <span class="small_font">
+        Usuń
+      </span>
+    <% end %>
+  </td>
+</tr>

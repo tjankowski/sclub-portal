@@ -1,0 +1,12 @@
+
+<%= render :partial => 'live_broadcast_tools' %>
+
+<div class="box">
+  <div class="box_content">
+    <div id="match_<%= @live_broadcast.match.id %>">
+    <%= render :partial => @live_broadcast.match %>
+    </div>
+  </div>
+</div>
+
+<%= render :partial => @live_broadcast %>

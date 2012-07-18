@@ -1,0 +1,8 @@
+<% link_to photo do %>
+  <div class="photo">
+    <%= image_tag photo.view.url(:small) %>
+    <span class="small_font">
+      <%=h photo.name %>
+    </span>
+  </div>
+<% end %>

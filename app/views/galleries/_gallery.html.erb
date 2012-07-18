@@ -1,0 +1,19 @@
+<div class="gallery">
+  <% link_to gallery do %>
+    <% if gallery.empty? %>
+      <%= image_tag "pictures.png", :size => "100x100" %>
+      <span class="important_font">
+        <%= gallery.name %> (pusta)
+      </span>
+    <% else %>
+      <% if gallery.has_main_photo? %>
+        <%= image_tag gallery.main_photo.view.url(:small) %>
+      <% else %>
+        <%= image_tag gallery.photos.first.view.url(:small) %>
+      <% end %>
+      <span class="important_font">
+        <%= gallery.name %>
+      </span>
+    <% end %>
+  <% end %>
+</div>

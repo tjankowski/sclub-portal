@@ -1,0 +1,36 @@
+<div class="match">
+    <div class="match_date">
+      <%= l match.match_start %>
+    </div>
+    <div class="match_summary">
+      <div class="home_team">
+        <%=h  match.team.official_name %>
+      </div>
+      <div class="result">
+        <%=h  match.home %> - <%=h  match.away %>
+      </div>
+      <div class="away_team">
+        <%=h  match.rival.official_name %>
+      </div>
+  </div>
+  <div class="squad">
+    <div class="home_squad">
+      <%= render :partial => 'goals/goal_short', :collection => match.home_goals %>
+      <%= render :partial => 'cards/card_short', :collection => match.home_cards %>
+    </div>
+    <div class="away_squad">
+      <%= render :partial => 'goals/goal_short', :collection => match.away_goals %>
+      <%= render :partial => 'cards/card_short', :collection => match.away_cards %>
+    </div>
+  </div>
+  <div class="squad">
+    <div class="home_squad">
+      <%= render :partial => 'matches/squad', :locals => {:squad => match.home_appearances, :name => 'home_squad' } %>
+    </div>
+    <div class="away_squad">
+      <%= render :partial => 'matches/squad', :locals =>  { :squad => match.rival_appearances, :name => 'away_squad' } %>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,31 @@
+<div id="login_box_form" class="w200">
+  <div class="box_content">
+    <% form_tag session_path do %>
+    <div>
+            <div class="login_form">
+              <div class="form_row">
+                <label for="login">Login:</label>
+                <%= text_field_tag 'login', nil, :size => 20, :class => 'w75' %>
+              </div>
+              <div class="form_row">
+                <label for="password">Hasło:</label>
+                <%= password_field_tag 'password', nil, :size => 20, :class => 'w75' %>
+              </div>
+              <div class="form_row">
+                <%= submit_tag 'Zaloguj' %>
+              </div>
+            </div>
+            <div class="login_links">
+              <% link_to forgot_password_path do %>
+                <div>
+                  <%= image_tag "unlock.png", :size => "25x25", :hspace => "10" %>
+                  <span class="small_font">
+                    Nie pamiętasz hasła?
+                  </span>
+                </div>
+              <% end %>
+            </div>
+    <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<%= render :partial => "menu" %>
+
+<% for team in @teams do %>
+    <div class="box">
+      <div class="green_header">
+        <h1>
+          <%= team.official_name %>
+        </h1>
+      </div>
+      <div class="box_content">
+        <table width="100%" >
+          <tr>
+            <td>
+              <%= render :partial => 'fixtures/mini_team_table', :locals => {:team => team, :season => team.last_season} %>
+            </td>
+            <td>
+              <table width="100%">
+                <tr>
+                  <td>
+                    <%= render :partial => 'matches/last_match', :object => team.last_match %>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <%= render :partial => 'matches/next_match', :object => team.next_match %>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  <% end %>

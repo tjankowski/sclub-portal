@@ -1,0 +1,15 @@
+<% content_for :menu do %>
+  <ul>
+    <li>
+      <div class="search_menu">
+        <div class="important_font">
+          Szukaj kategorii...
+        </div>
+        <%= form_tag articles_path, :method => 'get' do %>
+          <%= text_field_tag :search_tag, params[:search_tag], :autocomplete => 'off', :size => '15' %><br />
+          <%= submit_tag 'Szukaj', :name => nil %><br />
+        <% end %>
+      </div>
+    </li>
+  </ul>
+<% end %>

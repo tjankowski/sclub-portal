@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  live_broadcast_id: 1
+  body: MyString
+  minute: 1
+
+two:
+  live_broadcast_id: 1
+  body: MyString
+  minute: 1

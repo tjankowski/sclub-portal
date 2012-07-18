@@ -1,0 +1,27 @@
+<div class="box">
+  <div class="box_header">
+    <h1>Edycja sponosra</h1>
+  </div>
+  <div class="box_content">
+
+    <% form_for(@sponsor) do |f| %>
+      <%= f.error_messages %>
+
+      <p>
+        <%= f.label :name %><br />
+        <%= f.text_field :name %>
+      </p>
+      <p>
+        <%= f.label :website %><br />
+        <%= f.text_field :website %>
+      </p>
+      <p>
+        <%= f.label :info %><br />
+        <%= f.text_area :info %>
+      </p>
+      <p>
+        <%= f.submit 'Update' %>
+      </p>
+    <% end %>
+  </div>
+</div>

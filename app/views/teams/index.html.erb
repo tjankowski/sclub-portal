@@ -1,0 +1,18 @@
+<% if logged_in? %>
+  <% if current_user.has_role?('administrator')  %>
+    <div class="box">
+      <div class="box_content">
+        <%= new_team_tool_link %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="box">
+  <div class="box_header">
+    <h1>Drużyny</h1>
+  </div>
+  <div class="box_content">
+    <%= render :partial => @teams %>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="box">
+  <div class="box_header">
+    <h1>Dodaj bramkę</h1>
+  </div>
+  <div class="box_content">
+    <% remote_form_for [@appearance, Goal.new] do |f| %>
+      <table>
+        <th>Minuta</th>
+        <th>Opis</th>
+        <th>Samobójcza</th>
+        <tr>
+          <td><%= f.select :minute, minutes %></td>
+          <td><%= f.text_area :info, :rows => 2, :cols => 50 %></td>
+          <td><%= f.check_box :own %></td>
+        </tr>
+      </table>
+      <div class="center_align">
+        <%= f.submit 'Dodaj' %>
+      </div>
+    <% end %>
+  </div>
+</div>

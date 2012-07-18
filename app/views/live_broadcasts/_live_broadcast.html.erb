@@ -1,0 +1,20 @@
+<%= periodically_call_remote(:url => {:controller => "live_broadcasts", :action => 'show', :id => live_broadcast}, :frequency => '60', :update => '???') %>
+
+<div class="box">
+  <div class="box_header">
+    <h1>
+      <% link_to live_broadcast do %>
+        Relacja live - <%= status_pl(live_broadcast) %>
+      <% end %>
+    </h1>
+  </div>
+  <div id="broadcast_messages" class="text_broadcast">
+    <%= render :partial => "broadcast_messages/message", :collection => live_broadcast.broadcast_messages  %>
+  </div>
+  <div class="info">
+    Relacje live do pełnego działania wymagają włączonej obsługi języka JavaScript.<br />
+    Relacje live są obecnie w fazie testów.
+    Za wszelkie utrudnienia w działaniu przepraszamy.
+    Wszystkie błędy postaramy się jak najszybciej usunąć.
+  </div>
+</div>

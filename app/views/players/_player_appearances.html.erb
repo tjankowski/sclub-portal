@@ -1,0 +1,28 @@
+<% appearances = player.last_appearances(number) %>
+<% if appearances %>
+<div class="box">
+  <div class="box_header">
+    <h1>
+      Średnia z ostatnich <%= appearances.size %> występów: <%= player.last_appearances_rating_average(number) %>
+    </h1>
+  </div>
+  <div class="box_content">
+    <table>
+      <% if appearances %>
+        <% for appearance in player.last_appearances(number) %>
+          <tr>
+            
+            <td><i><%= l appearance.match.match_start.to_date %></i></td>
+            <td><%= (appearance.match.teams - [appearance.team])[0].official_name %></td>
+            <td><%= ratings_for appearance, :force_static => true, :small => true %></td>
+          </tr>
+        <% end %>
+      <% else %>
+        <span class="important_font">
+          Brak występów
+        </span>
+      <% end %>
+    </table>
+  </div>
+</div>
+<% end %>

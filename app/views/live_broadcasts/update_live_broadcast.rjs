@@ -1,0 +1,2 @@
+page.replace_html "text_broadcast", :partial => "broadcast_messages/message", :collection => @live_broadcast.broadcast_messages
+#page.reload

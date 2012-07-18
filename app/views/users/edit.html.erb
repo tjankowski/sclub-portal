@@ -1,0 +1,52 @@
+<div class="box">
+  <div class="box_header">
+    <h1>
+      Ustawienia
+    </h1>
+  </div>
+  <div class="box_content">
+    <div>
+      <%= error_messages_for :user %>
+
+      <% form_for :user, :url => user_url(@user), :html => { :method => :put } do |f| %>
+        <p>Email: <%= f.text_field :email, :size => 60 %>  <%= submit_tag 'Zapisz' %></p>
+      <% end %>
+    </div>
+    <div>
+      <% link_to user_path(@user) do %>
+        <div class="inline_links">
+          <%= image_tag "user.png", :size => "15x15", :hspace => "5" %>
+          Pokaż profil
+        </div>
+      <% end %>
+      <% link_to change_password_path do %>
+        <div class="inline_links">
+          <%= image_tag "lock.png", :size => "15x15", :hspace => "5" %>
+          Zmień hasło
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>
+
+<div class="box">
+  <div class="box_header">
+    <h1>
+      Avatar
+    </h1>
+  </div>
+  <% link_to :controller => "avatars", :action => "new" do %>
+    <div class="center_align">
+      <% if @user.avatar.nil? %>
+        <%= image_tag "user_avatar.png", :size => "150x150", :hspace => "10" %>
+      <%  else %>
+        <%= image_tag @user.avatar.view.url, :size => "150x150", :hspace => "10" %>
+      <% end %>
+      <div class="display_block">
+        Avatar jest obrazkiem, który będzie wyświetlany przy wszystkich Twoich komentarzach.<br />
+        Kliknij tutaj, aby go zmienić.
+      </div>
+    </div>
+  <% end %>
+</div>

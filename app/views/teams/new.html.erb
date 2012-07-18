@@ -1,0 +1,24 @@
+<div class="box">
+  <div class="box_header">
+    <h1>Nowa drużyna</h1>
+  </div>
+  <div class="box_content">
+    <% form_for :team do |f| %>
+      <div class="form_row">
+        <label for="name">Nazwa:</label>
+        <%= f.text_field :name %>
+      </div>
+      <div class="form_row">
+        <label for="official_name">Nazwa oficialna:</label>
+        <%= f.text_field :official_name %>
+      </div>
+      <div class="form_row">
+        <label for="club">Klub:</label>
+        <%= text_field_with_auto_complete :team, :club_name, {}, { :url => formatted_auto_complete_clubs_path(:js), :method => :get, :with => "'search=' + element.value"} %>
+      </div>
+      <div class="center_align">
+        <%= submit_tag "Zapisz", :class => "submit" %>
+      </div>
+    <% end %>
+  </div>
+</div>

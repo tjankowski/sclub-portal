@@ -1,0 +1,10 @@
+<% content_for :menu do %>
+  <% for season in @seasons do %>
+        <ul>
+          <li>
+            <%= link_to season.full_name, :controller => "fixtures", :action => "show", :id => season.id %>
+          </li>
+        </ul>
+    <% end %>
+  <% end %>
+

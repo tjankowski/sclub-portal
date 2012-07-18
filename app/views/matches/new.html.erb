@@ -1,0 +1,28 @@
+<div class="box">
+  <div class="box_header">
+    <h1>Nowy mecz</h1>
+  </div>
+  <div class="box_content">
+    <% form_for(@match) do |f| %>
+      <%= f.error_messages %>
+
+      <div class="form_row">
+        <label for="season">Sezon</label>
+        <%= f.collection_select :season, @seasons, :id, :full_name %>
+      </div>
+
+      <div class="form_row">
+        <label for="team">Gospodarze</label>
+        <%= text_field_with_auto_complete :match, :team_official_name, {}, { :url => formatted_auto_complete_teams_path(:js), :method => :get, :with => "'search=' + element.value"} %>
+      </div>
+
+      <div class="form_row">
+        <label for="rival">Goście</label>
+        <%= text_field_with_auto_complete :match, :rival_official_name, {}, { :url => formatted_auto_complete_teams_path(:js), :method => :get, :with => "'search=' + element.value"} %>
+      </div>
+      <div class="center_align">
+        <%= f.submit 'Zapisz' %>
+      </div>
+    <% end %>
+  </div>
+</div>

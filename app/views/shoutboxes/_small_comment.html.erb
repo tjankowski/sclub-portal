@@ -1,0 +1,13 @@
+<div class="shoutbox" id="small_shoutbox_<%= small_comment.id %>">
+  <div>
+    <div>
+      <% link_to small_comment.user do %>
+        <b><%= small_comment.user.login %>:</b>
+      <% end %>
+      <%=h small_comment.body  %>
+    </div>
+    <div class="time">
+      <i><%= time_ago_in_words(small_comment.updated_at, false) %> temu.</i>
+    </div>
+  </div>
+</div>

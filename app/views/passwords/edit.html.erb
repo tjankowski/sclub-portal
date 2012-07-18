@@ -1,0 +1,24 @@
+<div class="box">
+  <div class="box_header">
+    <h1>
+      Zmiana hasła
+    </h1>
+  </div>
+  <div class="box_content">
+    <% form_tag url_for(:action => "update", :id => params[:id]) do %>
+      <span class="inline_links">
+        <%= image_tag "lock.png", :size => "15x15", :hspace => "5" %>
+        Hasło:
+      </span>
+      <%= password_field_tag :password %><br />
+      <span class="inline_links">
+        <%= image_tag "lock.png", :size => "15x15", :hspace => "5" %>
+        Potwierdź hasło:
+      </span>
+      <%= password_field_tag :password_confirmation %><br />
+      <div class="center_align">
+        <%= submit_tag "Zmień hasło" %>
+      </div>
+    <% end %>
+  </div>
+</div>

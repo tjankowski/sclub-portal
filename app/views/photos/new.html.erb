@@ -1,0 +1,27 @@
+<div class="box">
+  <div class="box_header">
+<h1>Nowe zdjęcie</h1>
+  </div>
+  <div class="box_content">
+
+<% form_for @photo, :html => { :multipart => true } do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :added %><br />
+    <%= f.datetime_select :added %>
+  </p>
+  <div class="form_row">
+    <%= f.label :view %>
+    <%= f.file_field :view %>
+  </div>
+  <p>
+    <%= f.submit 'Dodaj' %>
+  </p>
+<% end %>
+  </div>
+</div>

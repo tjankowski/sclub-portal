@@ -1,0 +1,1 @@
+page.replace_html "tags", :partial => "tag_menu", :collection => @all_tags.first(20)

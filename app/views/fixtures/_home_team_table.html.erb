@@ -1,0 +1,33 @@
+<table class="small_font">
+  <tr>
+    <th>M</th>
+    <th>Pkt</th>
+    <th>Z</th>
+    <th>R</th>
+    <th>P</th>
+    <th>Bramki</th>
+  </tr>
+  <% for team in teams do %>
+      <tr>
+        <td>
+          <%= team.season_home_matches(season) %>
+        </td>
+        <td>
+          <%= team.season_home_points(season) %>
+        </td>
+        <td>
+          <%= team.season_home_wins(season) %>
+        </td>
+        <td>
+          <%= team.season_home_draws(season) %>
+        </td>
+        <td>
+          <%= team.season_home_losses(season) %>
+        </td>
+        <td>
+          <%= team.season_home_goals(season) %> - <%= team.season_home_lost_goals(season) %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

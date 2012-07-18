@@ -1,0 +1,12 @@
+<% if logged_in? %>
+  <% if appearance.rated_by?(current_user) %>
+    <%= ratings_for appearance, :force_static => true %>
+  <% else %>
+    <span id="rate_form">
+      <%= ratings_for appearance %>
+    </span>
+  <% end %>
+<% else %>
+  <%= ratings_for appearance, :force_static => true %>
+  <%= render :partial => 'partials/login_required', :locals => { :text => 'oceniania'} %>
+<% end %>

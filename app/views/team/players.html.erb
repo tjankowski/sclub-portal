@@ -1,0 +1,32 @@
+<%= render :partial => "menu" %>
+<div class="box">
+  <div class="box_header">
+    <h1>
+      <%= @team.name %> - Zawodnicy
+    </h1>
+  </div>
+  <div class="box_content">
+    <% if !@goalkeapers.empty?  %>
+      <h4 class="center_align">Bramkarze</h4>
+      <%= render :partial => "players/player_short", :collection => @goalkeapers %>
+    <% end %>
+    <% if !@defenders.empty?  %>
+      <h4 class="center_align">Obrońcy</h4>
+      <%= render :partial => "players/player_short", :collection => @defenders %>
+    <% end %>
+    <% if !@midfilders.empty?  %>
+      <h4 class="center_align">Pomocnicy</h4>
+      <%= render :partial => "players/player_short", :collection => @midfilders - @defenders %>
+    <% end %>
+    <% if !@forwards.empty?  %>
+      <h4 class="center_align">Napastnicy</h4>
+      <%= render :partial => "players/player_short", :collection => @forwards - @defenders - @midfilders %>
+    <% end %>
+    <% if @team.players.empty? %>
+      <h4 class="center_align">
+        Niestety dane zawodników nie zostały jeszcze wprowadzone do serwisu.<br />
+        Postaramy się jak najszybciej uzupełnić dane.
+      </h4>
+    <% end %>
+  </div>
+</div>

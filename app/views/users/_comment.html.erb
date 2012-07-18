@@ -1,0 +1,29 @@
+<div class="small_font">
+  <div class="comment">
+    <div class="article_title">
+      <% link_to comment.article do %>
+        <%=  comment.article.title %>
+      <% end %>
+    </div>
+    <div>
+      <div class="body">
+        <%=h comment.body  %>
+      </div>
+      <div class="time">
+        <%= l comment.updated_at %>
+      </div>
+      <% if logged_in? %>
+        <% if current_user.has_role?('administrator')  %>
+          <div>
+            <% link_to comment, :confirm => 'Are you sure?', :method => :delete do %>
+              <div class="inline_links">
+                <%= image_tag "delete.png", :size => "15x15", :hspace => "5" %>
+                Usuń
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

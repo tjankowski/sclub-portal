@@ -1,0 +1,28 @@
+<% div_for article do %>
+  <div class="article_header">
+    <span class="title">
+      <%= link_to article.title, article %>
+    </span>
+  </div>
+  <%= render :partial => 'articles/article_details', :object => article %>
+  <div class="content">
+    <% if (article.galleries.empty?) or (article.galleries.last.photos.empty?) %>
+      <%= article.body  %>
+    <% else %>
+      <table>
+        <tr>
+          <td>
+            <div class="gallery">
+              <%= render :partial => "articles/photo", :collection => article.galleries.last.photos %>
+            </div>
+          </td>
+          <td>
+            <div class="text">
+              <%= article.body  %>
+            </div>
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+<% end %>

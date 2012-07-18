@@ -1,0 +1,8 @@
+<li>
+  <%= tag.name %>
+    <% if @article.has_tag?(tag.name) %>
+      <%= link_to 'usuń', :controller => "article_tag", :action => "remove", :id => tag.id, :article_id => @article.id %>
+    <% else %>
+      <%= link_to 'dodaj', :controller => "article_tag", :action => "add", :id => tag.id, :article_id => @article.id%>
+    <% end %>
+</li>

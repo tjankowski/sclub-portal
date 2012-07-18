@@ -1,0 +1,29 @@
+<% if last_match %>
+  <div class="box">
+    <div class="box_header">
+      <h1>
+        Ostatni mecz
+      </h1>
+    </div>
+    <div class="box_content">
+      <div class="match">
+        <% link_to :controller => "matches", :action => "show", :id => last_match do %>
+          <div class="match_date">
+            <%= l last_match.match_start %>
+          </div>
+          <div class="match_summary">
+            <div class="home_team">
+              <%=h  last_match.team_official_name %>
+            </div>
+            <div class="result">
+              <%=h  last_match.home %> - <%=h  last_match.away %>
+            </div>
+            <div class="away_team">
+              <%=h  last_match.rival_official_name %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,15 @@
+<div class="box">
+  <div class="box_content">
+  <p>
+    <b>Article:</b>
+    <%=h @comment.article_id %>
+  </p>
+
+  <p>
+    <b>Body:</b>
+    <%=h @comment.body %>
+  </p>
+
+  <%= link_to 'Edit', edit_comment_path(@comment) %>
+  </div>
+</div>

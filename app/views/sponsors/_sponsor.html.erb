@@ -1,0 +1,13 @@
+<div class="center_align">
+  <div class="inline_links">
+    <% link_to sponsor.website do  %>
+      <% if sponsor.logo.nil? %>
+        <div>
+          <small><%= sponsor.name %></small>
+        </div>
+      <% else %>
+        <%= image_tag sponsor.logo.url(:small), :hspace => "10" %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

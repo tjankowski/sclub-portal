@@ -1,0 +1,21 @@
+<% if logged_in? %>
+  <% if current_user.has_role?('administrator')  %>
+    <div class="box">
+      <div class="box_content">
+      <%= new_article_tool_link %>
+      <%= tool_link 'document.png', 'Pokaż wszystkie', 'articles', 'all' %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+<div class="box">
+  <div class="box_content">
+    <%= render :partial =>"article_short", :collection => @articles %>
+    <div class="center_align">
+    <%= will_paginate @articles, :prev_label => "Poprzednia", :next_label => "Następna" %>
+    </div>
+  </div>
+</div>
+
+
+

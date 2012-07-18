@@ -1,0 +1,3 @@
+page.replace_html "match_#{@live_broadcast.match.id}", :partial => 'matches/match', :object => @live_broadcast.match
+page.replace_html "broadcast_messages", :partial => "broadcast_messages/message", :collection => @live_broadcast.broadcast_messages
+#page.reload

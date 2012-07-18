@@ -1,0 +1,4 @@
+# TODO Operate on the page object
+Event.observe(window, 'load', function() {
+    page.replace_html :player_stats, { :partial => "players/player_stats", :locals => { :player => @player } }
+  });

@@ -1,0 +1,85 @@
+<%= render :partial => "menu" %>
+TEST
+
+<% content_for :promo do %>
+  <% link_to :controller => "club", :action => "officials" do %>
+    <div class="box">
+      <div class="box_header">
+        <h1>
+          Władze
+        </h1>
+      </div>
+      <div class="box_content">
+        <div class="box_image">
+          <%= image_tag "zarzad1.jpg", :mouseover => image_path("zarzad2.jpg") %>
+        </div>
+        <span class="text">Członkowie zarządu klubu.</span>
+      </div>
+    </div>
+  <% end %>
+
+  <% link_to :controller => "club", :action => "trophies" do %>
+    <div class="box">
+      <div class="box_header">
+        <h1>
+          Trofea
+        </h1>
+      </div>
+      <div class="box_content">
+        <div class="box_image">
+          <%= image_tag "trofea1.jpg", :mouseover => image_path("trofea2.jpg") %>
+        </div>
+        <span class="text">Trofea zdobyte przez zawodników klubu.</span>
+      </div>
+    </div>
+  <% end %>
+
+  <% link_to :controller => "club", :action => "history" do %>
+    <div class="box">
+      <div class="box_header">
+        <h1>
+          Historia
+        </h1>
+      </div>
+      <div class="box_content">
+        <div class="box_image">
+          <%= image_tag "historia1.jpg", :mouseover => image_path("historia2.jpg") %>
+        </div>
+        <span class="text">Historia klubu.</span>
+      </div>
+    </div>
+  <% end %>
+
+  <% link_to :controller => "club", :action => "sponsors" do %>
+    <div class="box">
+      <div class="box_header">
+        <h1>
+          Sponsorzy
+        </h1>
+      </div>
+      <div class="box_content">
+        <div class="box_image">
+          <%= image_tag "sponsorzy1.jpg", :mouseover => image_path("sponsorzy2.jpg") %>
+        </div>
+        <span class="text">Firmy, które zainwestowały w kątecką piłkę.</span>
+      </div>
+    </div>
+  <% end %>
+
+ <% link_to :controller => "club", :action => "contact" do %>
+    <div class="box">
+      <div class="box_header">
+        <h1>
+          Kontakt
+        </h1>
+      </div>
+      <div class="box_content">
+        <div class="box_image">
+          <%= image_tag "sponsorzy1.jpg", :mouseover => image_path("sponsorzy2.jpg") %>
+        </div>
+        <span class="text">Skontaktuj się z nami.</span>
+      </div>
+    </div>
+  <% end %>
+
+<% end %>

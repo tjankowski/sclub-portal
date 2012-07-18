@@ -1,0 +1,8 @@
+<ul id='<%= name %>' >
+  <%= render :partial => 'appearances/appearance_short', :collection => squad %>
+</ul>
+<% if logged_in? %>
+  <% if current_user.has_role?('administrator') %>
+    <%= sortable_element(name, :url => sort_appearances_path, :handle => 'handle' ) %>
+  <% end %>
+<% end %>

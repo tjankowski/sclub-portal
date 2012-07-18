@@ -1,0 +1,47 @@
+<div class="box">
+  <div class="box_header">
+<h1>Edycja zawodnia</h1>
+  </div>
+  <div class="box_content">
+
+<% form_for(@player) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </p>
+  <p>
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </p>
+  <p>
+    <%= f.label :weight %><br />
+    <%= f.text_field :weight %>
+  </p>
+  <p>
+    <%= f.label :height %><br />
+    <%= f.text_field :height %>
+  </p>
+  <p>
+    <%= f.label :birthdate %><br />
+    <%= f.date_select :birthdate %>
+  </p>
+  <p>
+    <%= f.label :information %><br />
+    <%= f.text_area :information %>
+  </p>
+  <p>
+    <%= f.label :position %><br />
+    <%= f.text_field :position %>
+  </p>
+  <p>
+    <%= f.label :side %><br />
+    <%= f.text_field :side %>
+  </p>
+  <p>
+    <%= f.submit 'Zapisz' %>
+  </p>
+<% end %>
+
+  </div>

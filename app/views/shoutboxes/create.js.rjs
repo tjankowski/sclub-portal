@@ -1,0 +1,12 @@
+page.select('#shoutbox').each do |element|
+  page.insert_html :top, :shoutbox_comments, {:partial => 'shoutboxes/comment', :locals => { :comment => @shoutbox } }
+  page[:new_shoutbox].reset
+end
+page.insert_html :top, :small_shoutbox_comments, {:partial => 'shoutboxes/small_comment', :locals => { :small_comment => @shoutbox } }
+if(@shoutbox_comments.length > 4)
+page.visual_effect :puff, "small_shoutbox_#{@shoutbox_comments.last.id}"
+end
+page.visual_effect :blindDown, "small_shoutbox_#{@shoutbox.id}"
+page[:small_shoutbox_new].reset
+
+

@@ -1,0 +1,11 @@
+<div class="box">
+  <div class="box_header">
+    <h1>
+      Komentarze użytkownika
+    </h1>
+  </div>
+  <%= render :partial => "users/comment", :collection => comments %>
+  <div class="center">
+    <%= will_paginate comments, :prev_label => "Poprzednia", :next_label => "Następna" %>
+  </div>
+</div>

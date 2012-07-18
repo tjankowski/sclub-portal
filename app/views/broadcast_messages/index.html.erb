@@ -1,0 +1,29 @@
+<div class="box">
+  <div class="box_header">
+    <h1>Listing broadcast_messages</h1>
+  </div>
+  <div class="box_content">
+    <table>
+      <tr>
+        <th>Live broadcast</th>
+        <th>Body</th>
+        <th>Minute</th>
+      </tr>
+
+      <% @broadcast_messages.each do |broadcast_message| %>
+        <tr>
+          <td><%=h broadcast_message.live_broadcast_id %></td>
+          <td><%=h broadcast_message.body %></td>
+          <td><%=h broadcast_message.minute %></td>
+          <td><%= link_to 'Show', broadcast_message %></td>
+          <td><%= link_to 'Edit', edit_broadcast_message_path(broadcast_message) %></td>
+          <td><%= link_to 'Destroy', broadcast_message, :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+      <% end %>
+    </table>
+
+    <br />
+
+    <%= link_to 'New broadcast_message', new_broadcast_message_path %>
+  </div>
+</div>

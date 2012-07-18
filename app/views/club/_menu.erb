@@ -1,0 +1,9 @@
+<% content_for :menu do -%>
+    <ul>
+      <li><%= link_to "Władze", :controller => "club", :action => "officials" %></li>
+      <li><%= link_to "Sponsorzy", :controller => "club", :action => "sponsors" %></li>
+      <li><%= link_to "Historia", :controller => "club", :action => "history" %></li>
+      <li><%= link_to "Trofea", :controller => "club", :action => "trophies" %></li>
+      <li><%= link_to "Kontakt", :controller => "club", :action => "contact" %></li>
+    </ul>
+<% end %>

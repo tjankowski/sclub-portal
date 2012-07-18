@@ -1,0 +1,19 @@
+<div class="box">
+  <div class="box_header">
+    <h1>
+      Zmiana avatara
+    </h1>
+  </div>
+  <div class="box_content">
+    <% form_for :avatar, :html => { :multipart => true } do |f| %>
+      <%= f.error_messages %>
+      <div class="form_row">
+          <%= f.label :view, "Plik:" %>
+          <%= f.file_field :view %>
+      </div>
+      <div class="center_align">
+        <%= f.submit 'Zmień' %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<% @all_tags = Tag.search(params[:search_tag]) %>
+
+ <%= render :partial => 'search_menu' %>
+
+<% content_for :menu do %>
+    <ul>
+    <div id="tags">
+      <%= render :partial => 'tag_menu', :collection => @all_tags.first(20) %>
+    </div>
+  </ul>
+<% end %>

@@ -1,0 +1,5 @@
+<% if not @last_article.nil? %>
+  <div class="box">
+    <%= render :partial => "articles/article_short", :collection => @last_articles %>
+  </div>
+<% end %>

@@ -1,0 +1,36 @@
+<div class="box">
+  <div class="box_content">
+<p>
+  <b>Player:</b>
+  <%=h @goal.player_id %>
+</p>
+
+<p>
+  <b>Appearance:</b>
+  <%=h @goal.appearance_id %>
+</p>
+
+<p>
+  <b>Team:</b>
+  <%=h @goal.team_id %>
+</p>
+
+<p>
+  <b>Minute:</b>
+  <%=h @goal.minute %>
+</p>
+
+<p>
+  <b>Info:</b>
+  <%=h @goal.info %>
+</p>
+
+<p>
+  <b>Own:</b>
+  <%=h @goal.own %>
+</p>
+
+
+<%= link_to 'Edit', edit_goal_path(@goal) %>
+  </div>
+</div>

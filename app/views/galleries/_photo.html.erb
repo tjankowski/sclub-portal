@@ -1,0 +1,21 @@
+<div class="photo">
+  <% if logged_in? %>
+    <% if current_user.has_role?('administrator')  %>
+      <div class="display_block">
+        <span class="small_font">
+          <span class="small_font">
+            <%= link_to "[Ustaw zdjęcie główne galerii]",:controller => "main_photos", :action => "set", :id => @gallery, :photo_id => photo %>
+          </span>
+        </span>
+      </div>
+    <% end %>
+  <% end %>
+  <% link_to photo.view.url(:big), :rel => "lightbox[#{@gallery.name}]", :title => photo.name  do %>
+    <%= image_tag photo.view.url(:small) %>
+    <div>
+      <small>
+        <%=h photo.name %>
+      </small>
+    </div>
+  <% end %>
+</div>

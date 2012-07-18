@@ -1,0 +1,49 @@
+<div class="box">
+  <div class="box_header">
+    <h1>
+      Shoutbox
+    </h1>
+  </div>
+  <div class="box_content">
+    <div id="shoutbox_comments">
+      <%= render :partial => "shoutboxes/comment", :collection => @shoutbox_comments %>
+    </div>
+    <div class="center_align">
+      <%= will_paginate @shoutbox_comments, :prev_label => "Poprzednia", :next_label => "Następna" %>
+    </div>
+    <% if logged_in? %>
+      <div>
+        <% form_for [Shoutbox.new] do |f| %>
+          <div class="center_align">
+            <%= f.text_area :body, :rows => 2, :cols => 60 %>
+          </div>
+          <div class="center_align">
+            <%= f.submit "dodaj wiadomość" %>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <div class="important_font">
+          Musisz się zalogować, aby mieć możliwość komentowania.<br />
+          <% link_to new_session_path do %>
+            <div>
+              <%= image_tag "user.png", :size => "25x25", :hspace => "10" %>
+              <small>
+                Zaloguj.
+              </small>
+            </div>
+          <% end %>
+          <% link_to new_user_path do %>
+            <div>
+              <%= image_tag "user_add.png", :size => "25x25", :hspace => "10" %>
+              <small>
+                Nie masz konta? Zarejestruj się.
+              </small>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="box">
+  <div class="box_header">
+    <h1>
+      <%= staff.full_name %>
+    </h1>
+  </div>
+  <div class="player_form">
+    <table width="100%;">
+      <tr>
+        <td width="50%">
+          <div class="player_detail_form">
+            <div class="player_detail">
+              Data urodzenia:
+              <span class="right_align">
+                <%=  staff.birthdate %>
+              </span>
+            </div>
+            <div class="player_detail">
+              Rola:
+              <span class="right_align">
+                <%=  staff.role %>
+              </span>
+            </div>
+          </div>
+        </td>
+        <td width="50%">
+          <div class="player_photo">
+            <%= image_tag "unknown_player.png", :size => "100x100", :hspace => "10" %>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <div class="player_detail"></div>
+    <div class="player_information">
+      <%= staff.information %>
+    </div>
+  </div>
+</div>

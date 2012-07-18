@@ -1,0 +1,22 @@
+<div class="box">
+  <div class="box_header">
+    <h1>Edycja sezonu</h1>
+  </div>
+  <div class="box_content">
+    <% form_for :season do |f| %>
+      <div class="form_row">
+        Nazwa: <%= f.text_field :name %>
+      </div>
+      <div class="form_row">
+        Od: <%= f.date_select :start_at %>
+      </div>
+      <div class="form_row">
+        Do: <%= f.date_select :end_at %>
+      </div>
+      <div class="form_row">
+        Widoczny: <%= f.check_box :published %>
+      </div>
+      <%= submit_tag "Zapisz", :class => "submit" %>
+    <%  end %>
+  </div>
+</div>

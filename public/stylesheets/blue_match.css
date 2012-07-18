@@ -1,0 +1,91 @@
+.match {
+    padding: 0.3em;
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.match_date {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    text-align: center;
+    font-size: 10px;
+}
+
+.squad {
+    width: 100%;
+    text-align: center;
+    overflow: auto;
+}
+
+.squad ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.home_team {
+    display: inline-block;
+    width: 42%;
+    text-align: left;
+    float: left;
+    padding: 0.3em;
+    vertical-align: middle;
+}
+
+.home_squad {
+    font-size: 10px;
+    background: transparent;
+    display: inline-block;
+    text-align: left;
+    padding: 0.3em 0.3em 0.3em 1em;
+    vertical-align: top;
+    margin: 0;
+    float: left;
+    list-style: none;
+}
+
+.away_squad {
+    font-size: 10px;
+    background: transparent;
+    display: inline-block;
+    float: right;
+    text-align: left;
+    padding: 0.3em 0.3em 0.3em 1em;
+    margin: 0;
+    vertical-align: top;
+    list-style: none;
+}
+
+.away_team {
+    display: inline-block;
+    width: 42%;
+    text-align: right;
+    float: right;
+    padding: 0.3em;
+    vertical-align: middle;
+}
+
+.result {
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    color: #ffffff;
+    padding: 0.3em;
+    background: #FF751F url(/images/box_header_gradient.png) repeat-x top;
+    vertical-align: middle;
+    width: 10%;
+    float: left;
+}
+
+.match_summary {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+}

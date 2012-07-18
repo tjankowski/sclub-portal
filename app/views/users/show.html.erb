@@ -1,0 +1,46 @@
+<%= render :partial=>'user_menu', :locals => { :user => @user }  %>
+<%= render :partial=>'admin_menu' %>
+
+<div class="box">
+  <div class="box_header">
+    <h1>
+      <%= image_tag "user.png", :size => "15x15", :hspace => "10" %>
+      <%=h @user.login %>
+    </h1>
+  </div>
+  <table>
+    <tr>
+      <td>
+        <div class="user_avatar">
+          <% if @user.avatar.nil? %>
+            <%= image_tag "user_avatar.png", :size => "150x150", :hspace => "10" %>
+            <% if logged_in? %>
+              <% if @user == current_user  %>
+                <% link_to :controller => "avatars", :action => "new" do %>
+                  <div class="display_block">
+                    <small>
+                      Avatar jest obrazkiem, który będzie wyświetlany przy wszystkich Twoich komentarzach.<br />
+                      Kliknij tutaj, aby go zmienić lub przejdź do ustawień konta.
+                    </small>
+                  </div>
+                <% end %>
+              <% end %>
+            <% end %>
+          <%  else %>
+            <%= image_tag @user.avatar.view.url(:small), :hspace => "10" %>
+          <% end %>
+        </div>
+      </td>
+      <td>
+        <div class="user_details">
+          <%= image_tag "calendar.png", :size => "15x15", :hspace => "10" %>
+          dołączył: <%= l @user.created_at %>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<%= render :partial => 'users/user_comments', :locals => { :comments => @comments } %>
+
+

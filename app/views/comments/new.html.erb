@@ -1,0 +1,24 @@
+<div class="box">
+  <div class="box_header">
+  <h1>Nowy komentarz</h1>
+  </div>
+  <div class="box_content">
+
+<% form_for(@comment) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :article_id %><br />
+    <%= f.text_field :article_id %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+  </div>
+</div>

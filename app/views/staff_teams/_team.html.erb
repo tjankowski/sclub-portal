@@ -1,0 +1,8 @@
+<li>
+  <%= team.official_name %>
+    <% if @staff.has_team?(team) %>
+      <%= link_to 'usuń', :controller => "staff_teams", :action => "remove", :id => team.id, :staff_id => @staff.id %>
+    <% else %>
+      <%= link_to 'dodaj', :controller => "staff_teams", :action => "add", :id => team.id, :staff_id => @staff.id%>
+    <% end %>
+</li>

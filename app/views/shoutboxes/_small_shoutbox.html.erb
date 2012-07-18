@@ -1,0 +1,37 @@
+<div id="small_shoutbox">
+  <div class="box">
+    <div class="box_header">
+      <% link_to shoutboxes_path do %>
+        <h1>
+          Shoutbox
+        </h1>
+      <%  end %>
+    </div>
+    <div class="box_content">
+      <div id="small_shoutbox_comments">
+        <%= render :partial => "shoutboxes/small_comment", :collection => @shoutbox_comments %>
+      </div>
+      <% if logged_in? %>
+        <div>
+          <% remote_form_for [Shoutbox.new], :html => { :id => 'small_shoutbox_new' } do |f| %>
+            <div>
+              <%= f.text_field :body, :size => 15 %>
+            </div>
+            <div class="center_align">
+              <%= f.submit "dodaj" %>
+            </div>
+            <div class="center_align">
+              <% link_to shoutboxes_path do %>
+                <small >
+                  [Pokaż więcej]
+                </small>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+      <%= render :partial => 'partials/login_required', :locals => { :text => 'komentowania'} %>
+      <% end %>
+    </div>
+  </div>
+</div>

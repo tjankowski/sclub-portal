@@ -1,0 +1,21 @@
+<div class="small_font">
+  <div class="center_align">
+    Musisz się zalogować, aby mieć możliwość <%= text %>.<br />
+    <% link_to new_session_path do %>
+      <div>
+        <%= image_tag "user.png", :size => "15x15", :hspace => "5" %>
+        <small>
+          Zaloguj.
+        </small>
+      </div>
+    <% end %>
+    <% link_to new_user_path do %>
+      <div>
+        <%= image_tag "user_add.png", :size => "15x15", :hspace => "5" %>
+        <small>
+          Nie masz konta? Zarejestruj się.
+        </small>
+      </div>
+    <% end %>
+  </div>
+</div>

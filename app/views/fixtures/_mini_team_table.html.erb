@@ -1,0 +1,45 @@
+<div class="box">
+  <div class="box_header">
+    <h1>
+      <%= season.name %>
+    </h1>
+  </div>
+  <div class="box_content">
+    <table class="small_font" width="100%">
+      <tr>
+        <th>Nazwa</th>
+        <th>Mecze</th>
+        <th>Punkty</th>
+      </tr>
+      <% standings = SeasonStanding.find_all_by_season_id(season, :order => "position ASC") %>
+      <% team_standing = SeasonStanding.find_by_season_id_and_team_id(season, team) %>
+      <% mini_standings = [team_standing] %>
+      <% mini_standings.concat(standings.first(2)) %>
+      <% mini_standings.concat(standings.last(2)) %>
+      <% mini_standings << SeasonStanding.find_by_season_id_and_position(season, team_standing.position+1) %>
+      <% mini_standings << SeasonStanding.find_by_season_id_and_position(season, team_standing.position-1) %>
+      <% mini_standings.uniq! %>
+      <% mini_standings = mini_standings.sort_by {|stand| stand.position} %>
+
+      <% for standing in mini_standings %>
+      <% if standing.team == team %>
+        <% style = "font-weight: bold" %>
+        <% else %>
+        <% style = "" %>
+        <% end %>
+        <tr style = "<%= style %>" >
+          <td>
+            <%= standing.position %>.
+            <%= standing.team.official_name %>
+          </td>
+          <td style="text-align: center;">
+            <%= standing.matches %>
+          </td>
+          <td style="text-align: center;">
+            <%= standing.points %>
+          </td>
+        </tr>
+      <% end %>
+      </table>
+    </div>
+  </div>

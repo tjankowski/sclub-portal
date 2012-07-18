@@ -1,0 +1,27 @@
+<% if logged_in? %>
+  <% if current_user.has_role?('administrator')  %>
+    <div class="box">
+      <div class="box_content">
+        <%= tool_link 'images.png', 'Nowa', 'galleries', 'new' %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+<div class="box">
+  <div class="box_header">
+    <h1>
+      Galerie
+    </h1>
+  </div>
+  <div class="box_content">
+    <h3>Dodane</h3>
+    <ul>
+      <%= render :partial => 'gallery', :collection => @article.galleries %>
+    </ul>
+    <h3>Dostępne</h3>
+    <ul>
+      <%= render :partial => 'gallery', :collection => (@all_galleries - @article.galleries) %>
+    </ul>
+  </div>
+</div>
+

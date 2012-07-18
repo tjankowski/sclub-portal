@@ -1,0 +1,68 @@
+<%= render :partial => "menu" %>
+<% for team in @teams do %>
+    <div class="box">
+      <div class="green_header">
+        <h1>
+          <%= team.name %>
+        </h1>
+      </div>
+      <div class="box_content">
+        <table width="100%" >
+          <tr>
+            <td>
+              <table width="100%">
+                <tr>
+                  <td class="center_align">
+                    <% link_to :controller => "team", :action => "players", :id => team do %>
+                      <%= image_tag "historia1.jpg", :size => "100x100", :align => "top", :hspace => "10" %>
+                      <span class="important_font">
+                        Zawodnicy
+                      </span>
+                    <% end %>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="center_align">
+                    <% link_to :controller => "team", :action => "staff", :id => team do %>
+                      <%= image_tag "staff.jpg", :size => "100x100", :align => "top", :hspace => "10" %>
+                      <span class="important_font">
+                        Sztab
+                      </span>
+                    <% end %>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="center_align">
+                    <% link_to :controller => "team", :action => "news", :id => team do %>
+                      <%= image_tag "news.jpg", :size => "100x100", :align => "top", :hspace => "10" %>
+                      <span class="important_font">
+                        Newsy
+                      </span>
+                    <% end %>
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td>
+              <table width="100%"><tr>
+                  <td>
+                    <%= render :partial => 'fixtures/mini_team_table', :locals => {:team => team, :season => team.last_season} %>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <%= render :partial => 'matches/last_match', :object => team.last_match %>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <%= render :partial => 'matches/next_match', :object => team.next_match %>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  <% end %>

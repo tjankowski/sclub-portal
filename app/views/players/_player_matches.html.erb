@@ -1,0 +1,76 @@
+<div class="box">
+  <div class="box_header">
+    <h1>
+      Mecze
+    </h1>
+  </div>
+  <div class="box_content">
+    <table width="100%" style="text-align: center; border: none;">
+      <tr>
+        <th>
+          Sezon
+        </th>
+        <th>
+          Meczów
+        </th>
+        <th>
+          Minut
+        </th>
+        <th>
+          <%=  image_tag "goal.png", :size => "10x10" %>
+          Br.
+        </th>
+        <th>
+          <%=  image_tag "zk.png", :size => "10x10" %>
+          ŻK
+        </th>
+        <th>
+          <%=  image_tag "ck.png", :size => "10x10" %>
+          CzK
+        </th>
+      </tr>
+      <% if player.last_season %>
+        <tr>
+          <td>
+            <%= player.last_season.full_name %>
+          </td>
+          <td>
+            <%= player.matches_played_in_season(player.last_season) %>
+          </td>
+          <td>
+            <%= player.minutes_in_season(player.last_season) %>
+          </td>
+          <td>
+            <%= player.goals_scored_in_season(player.last_season) %>
+          </td>
+          <td>
+            <%= player.yellow_cards_in_season(player.last_season) %>
+          </td>
+          <td>
+            <%= player.red_cards_in_season(player.last_season) %>
+          </td>
+        </tr>
+      <% end %>
+      <tr>
+        <td>
+          Ogółem
+        </td>
+        <td>
+          <%= player.matches_played %>
+        </td>
+        <td>
+          <%= player.minutes %>
+        </td>
+        <td>
+          <%= player.goals_scored %>
+        </td>
+        <td>
+          <%= player.yellow_cards %>
+        </td>
+        <td>
+          <%= player.red_cards %>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
