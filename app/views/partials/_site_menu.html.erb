@@ -1,38 +1,26 @@
-<div id="main_menu">
-  <ul class="rootVoices">
-                <li class="rootVoice {menu: 'box_menu'}" ><%= nav_link "Aktualności", "articles", "index" %></li>
-                <li class="rootVoice {menu: 'main_menu_club'}" ><%= nav_link "Klub", "club", "index" %></li>
-                 <% for team in @teams do %>
-                 <li class="rootVoice {menu: 'main_menu_team_<%= team.id %>'" ><%= link_to team.name, :controller => "team", :action => "players", :id => team %></li>
-                 <% end %>
-                <li class="rootVoice {menu: 'main_menu_team'}" ><%= nav_link "Drużyny", "team", "index" %></li>
-                <li class="rootVoice {menu: 'menu_2'}" ><%= nav_link "Rozgrywki", "fixtures", "index" %></li>
-                <li class="rootVoice {menu: 'empty'}" onclick="showMessage('empty root menu')"><%= nav_link "Multimedia", "galleries", "index" %></li>
+<ul class="nav-bar">
+  <li class="active"><%= link_to "Aktualności", :controller => "articles", :action => "index" %></li>
+  <li class="has-flyout">
+    <%= link_to "Klub", :controller => "club", :action => "index" %>
+    <a href="#" class="flyout-toggle"><span> </span></a>
+    <ul class="flyout">
+      <li><%= link_to "Władze", :controller => "club", :action => "officials" %></li>
+      <li><%= link_to "Sponsorzy", :controller => "club", :action => "sponsors" %></li>
+      <li><%= link_to "Historia", :controller => "club", :action => "history" %></li>
+      <li><%= link_to "Trofea", :controller => "club", :action => "trophies" %></li>
+      <li><%= link_to "Kontakt", :controller => "club", :action => "contact" %></li>
+    </ul>
+  </li>
+  <% for team in @teams do %>
+      <li class="has-flyout" >
+        <%= link_to team.name, :controller => "team", :action => "players", :id => team %>
+        <a href="#" class="flyout-toggle"><span> </span></a>
+        <ul class="flyout">
+          <li><%= link_to "Drużyny", :controller => "team", :action => "index" %></li>
+          <li><%= link_to "Rozgrywki", :controller => "fixtures", :action => "index" %></li>
+          <li><%= link_to "Multimedia", :controller => "galleries", :action => "index" %></li>
+        </ul>
+      </li>
+    <% end %>
+
   </ul>
-</div>
-
-<div id="main_menu_club" class="hidden">
-      <%= link_to "Władze", :controller => "club", :action => "officials" %>
-      <%= link_to "Sponsorzy", :controller => "club", :action => "sponsors" %>
-      <%= link_to "Historia", :controller => "club", :action => "history" %>
-      <%= link_to "Trofea", :controller => "club", :action => "trophies" %>
-      <%= link_to "Kontakt", :controller => "club", :action => "contact" %>
-</div>
-
-<% for team in @teams do %>
-  <div id="main_menu_team_<%= team.id %>" class="hidden">
-    <%= link_to "Zawodnicy", :controller => "team", :action => "players", :id => team %>
-    <%= link_to "Sztab", :controller => "team", :action => "staff", :id => team %>
-    <%= link_to "Newsy", :controller => "team", :action => "news", :id => team %>
-  </div>
-<% end %>
-
-  <div id="menu_2" class="hidden">
-    <a rel="title" class="{action: 'showMessage(\'menu_2.1\')', img: 'icon_13.png'}">choose one of these links</a>
-    <a class="{action: 'showMessage(\'menu_2.2\')'}">menu_2.2</a>
-    <a class="{menu: 'sub_menu_1', img: 'icon_14.png'}">menu_2.3 (disabled)</a>
-    <a class="{menu: 'sub_menu_2', img: '24-tag-add.png'}">menu_2.4</a>
-    <a rel="separator"> </a>
-
-    <a class="{action: 'showMessage(\'menu_2.4\')'}">menu_2.5</a>
-  </div>

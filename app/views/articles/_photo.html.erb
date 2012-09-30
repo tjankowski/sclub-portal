@@ -1,5 +1,3 @@
-<% link_to photo.view.url(:big), :rel => "lightbox[#{@article.title}]", :title => photo.name do %>
-  <div class="photo">
+<%= link_to photo.view.url(:big), :title => photo.name do %>
     <%= image_tag photo.view.url(:small) %>
-  </div>
 <% end %>

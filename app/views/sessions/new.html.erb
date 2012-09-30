@@ -1,57 +1,60 @@
-<div>
-  <div class="box_header">
-    <h1>Logowanie</h1>
-  </div>
-  <div class="box_content">
-    <% form_tag session_path do %>
-    <table width="100%">
-        <tr>
-          <td>
-            <div class="login_icon">
-              <%= image_tag "join.jpg", :size => "100x100", :align => "left", :hspace => "10" %>
+<div class="row">
+  <h1>Logowanie</h1>
+  <%= form_tag session_path, :class => 'custom' do %>
+    <div class="two columns">
+      <%= image_tag "join.jpg", :size => "100x100", :align => "left", :hspace => "10" %>
+    </div>
+    <div class="four columns end">
+      <div class="row">
+        <div class="two columns">
+          <label for="login" class="right inline">Login:</label>
+        </div>
+        <div class="ten columns">
+          <%= text_field_tag 'login', nil, :size => 20, :placeholder => 'Login' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="two columns">
+          <label for="password" class="right inline">Hasło:</label>
+        </div>
+        <div class="ten columns">
+          <%= password_field_tag 'password', nil, :size => 20, :placeholder => 'Hasło' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="ten columns offset-by-two">
+          <div class="row">
+            <div class="seven columns">
+              <label for="remember_me">
+                <%= check_box_tag 'remember_me', "1", false, :style => 'display: none;' %>
+                <span class="custom checkbox"></span> Zapamiętaj mnie
+              </label>
             </div>
-          </td>
-          <td>
-            <div class="login_form">
-              <div class="form_row">
-                <label for="login">Login:</label>
-                <%= text_field_tag 'login', nil, :size => 20 %>
-              </div>
-              <div class="form_row">
-                <label for="password">Hasło:</label>
-                <%= password_field_tag 'password', nil, :size => 20 %>
-              </div>
-              <div class="form_row">
-                <span class="small_font">
-                  Zapamiętaj mnie:
-                  <%= check_box_tag 'remember_me' %>
-                </span>
-                <%= submit_tag 'Zaloguj' %>
-              </div>
+            <div class="five columns">
+              <%= submit_tag 'Zaloguj', :class => "button" %>
             </div>
-          </td>
-          <td>
-            <div class="login_links">
-              <% link_to new_user_path do %>
-                <div>
-                  <%= image_tag "user_add.png", :size => "25x25", :hspace => "10" %>
-                  <span class="small_font">
-                    Nie masz konta ?
-                  </span>
-                </div>
-              <% end %>
-              <% link_to forgot_password_path do %>
-                <div>
-                  <%= image_tag "unlock.png", :size => "25x25", :hspace => "10" %>
-                  <span class="small_font">
-                    Nie pamiętasz hasła?
-                  </span>
-                </div>
-              <% end %>
-            </div>
-          </td>
-        </tr>
-      </table>
-    <% end %>
-  </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="login_links">
+      <% link_to new_user_path do %>
+        <div>
+          <%= image_tag "user_add.png", :size => "25x25", :hspace => "10" %>
+          <span class="small_font">
+            Nie masz konta ?
+          </span>
+        </div>
+      <% end %>
+      <% link_to forgot_password_path do %>
+        <div>
+          <%= image_tag "unlock.png", :size => "25x25", :hspace => "10" %>
+          <span class="small_font">
+            Nie pamiętasz hasła?
+          </span>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
 </div>

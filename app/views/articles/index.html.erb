@@ -1,9 +1,13 @@
-<%= render :partial => 'menu' %>
-<%= stylesheet_link_tag "blue_article" %>
-
-<% content_for :feature do %>
-  <%= render :partial => 'articles_viewer' %>
+<% content_for :right do %>
+  <%= render :partial => 'matches/next_match', :object => @teams[0].last_match %>
+  <%= render :partial => 'matches/last_match', :object => @teams[0].last_match %>
 <% end %>
+
+<div class="row">
+  <div class="twelve columns">
+    <%= render :partial => 'articles_viewer' %>
+  </div>
+</div>
 
 <% if logged_in? %>
   <% if current_user.has_role?('administrator')  %>
@@ -26,10 +30,12 @@
     <% end %>
   <% end %>
 <% end %>
-
-<%= render :partial =>"article_short", :collection => @articles %>
-
-<div>
+<div class="row">
+  <div class="eight columns">
+    <%= render :partial =>"article_short", :collection => @articles %>
+  </div>
+</div>
+<div class="row">
   <%= will_paginate @articles, :prev_label => "Poprzednia", :next_label => "Następna"  %>
 </div>
 

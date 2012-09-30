@@ -8,55 +8,47 @@
     <meta name="keywords" content="motobi, bystrzyca, kąty wrocławskie, motobi-bystrzyca, katy wroclawskie, motobi bystrzyca" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <%= javascript_include_tag :defaults %>
-    <%= ajaxful_rating_style %>
-    <script type = "text/javascript">
-      // Define the entry point
-      $(document).ready(function()
-      {
-        start();
-      });
-    </script>
     <link rel="shortcut icon" href="/motobi_favicon.ico" type="image/x-icon" />
     <meta name="google-site-verification" content="mO58k5dXJV8oR3mFfB0Pnb6j1_7jzNnv9-__AAAsqwc" />
-    <%= yield :head %>
+
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application" %>
   </head>
   <body>
-
-    <div class="">
-      <%= render :partial => 'partials/site_menu' %>
-      <div id="layout">
-          <div id="content_layout">
-            <div id="content-feature">
-              <%= render :partial => 'partials/notice' %>
-              <%= render :partial => 'partials/error' %>
-
-              <%= yield :feature %>
-            </div>
-            <div id="content-main">
-              <%= yield %>
-            </div>
-            <div id="content-promo">
-              <%= yield :right_column %>
-              <%= yield :promo %>
-              <%= render :partial => "shoutboxes/small_shoutbox" %>
-              <%= render :partial => "partials/top_commentators", :locals => {:title => "Komentarze", :list => @top_users, :unit => ""} %>
-              <%= render :partial => 'users/users_counter' %>
-            </div>
-
-          </div>
-         <div id="left_sidebar">
-            <div id="menu">
-              <%= yield :menu %>
-            </div>
-            <%= yield :left_column %>
-          </div>
+    <div class="row">
+      <div class="twelve columns">
+        <%= render :partial => 'partials/site_menu' %>
       </div>
-
-      <%= render :partial => 'sponsors/sponsors_list' %>
-
-      <%= render :partial => 'partials/site_footer'  %>
-
+    </div>
+    <div class="row">
+      <div class="twelve columns">
+        <%= render :partial => 'partials/notice' %>
+        <%= render :partial => 'partials/error' %>
+      </div>
+    </div>
+    <div class="row">
+      <% if  content_for?(:right) %>
+      <div class="eight columns">
+        <%= yield %>
+      </div>
+      <div class="four columns">
+        <%= yield :right %>
+      </div>
+      <% else %>
+      <div class="twelve columns">
+        <%= yield %>
+      </div>
+      <% end %>
+    </div>
+    <div class="row">
+      <div class="twelve columns">
+        <%= render :partial => 'sponsors/sponsors_list' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="twelve columns">
+        <%= render :partial => 'partials/site_footer'  %>
+      </div>
     </div>
     <%= render :partial => 'partials/google_scripts' %>
 
